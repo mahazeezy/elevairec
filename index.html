@@ -3,530 +3,296 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elevation Prospector</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<title>Elevation Studio — AI Receptionist</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
     --bg: #080a0f;
     --bg2: #0d1017;
+    --bg3: #111520;
     --surface: #151b28;
     --surface2: #1c2436;
     --border: rgba(255,255,255,0.07);
-    --border2: rgba(255,255,255,0.14);
+    --border2: rgba(255,255,255,0.12);
     --accent: #00e5ff;
     --accent2: #0066ff;
+    --accent3: #7b2fff;
     --text: #f0f4ff;
     --muted: rgba(240,244,255,0.45);
-    --success: #00c48c;
-    --warning: #f0a500;
-    --danger: #e8342a;
+    --muted2: rgba(240,244,255,0.25);
   }
-  body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 15px; line-height: 1.6; min-height: 100vh; padding: 2rem; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E"); pointer-events: none; z-index: 0; opacity: 0.6; }
 
-  .header { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
-  .logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.4rem; letter-spacing: -0.02em; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1rem 5%; border-bottom: 1px solid var(--border); backdrop-filter: blur(20px); background: rgba(8,10,15,0.8); }
+  .logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.2rem; letter-spacing: -0.02em; color: var(--text); text-decoration: none; }
   .logo span { color: var(--accent); }
-  .badge { background: rgba(0,229,255,0.08); border: 1px solid rgba(0,229,255,0.2); color: var(--accent); font-size: 0.7rem; padding: 0.25rem 0.75rem; border-radius: 100px; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 500; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; }
+  nav a:hover { color: var(--text); }
+  .nav-links { display: flex; gap: 2rem; align-items: center; }
+  .btn-nav { background: var(--accent); color: #000 !important; font-weight: 500; padding: 0.45rem 1.1rem; border-radius: 100px; font-size: 0.8rem !important; transition: opacity 0.2s !important; }
+  .btn-nav:hover { opacity: 0.85; }
 
-  .grid { display: grid; grid-template-columns: 340px 1fr; gap: 1.5rem; align-items: start; }
-  @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+  .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 7rem 5% 4rem; position: relative; overflow: hidden; }
+  .hero-glow { position: absolute; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(0,229,255,0.08) 0%, rgba(0,102,255,0.04) 40%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%, -55%); pointer-events: none; }
+  .hero-glow2 { position: absolute; width: 350px; height: 350px; border-radius: 50%; background: radial-gradient(circle, rgba(123,47,255,0.1) 0%, transparent 70%); bottom: 10%; right: 10%; pointer-events: none; }
+  .badge { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(0,229,255,0.08); border: 1px solid rgba(0,229,255,0.2); color: var(--accent); font-size: 0.72rem; font-weight: 500; padding: 0.3rem 0.85rem; border-radius: 100px; margin-bottom: 1.25rem; letter-spacing: 0.05em; text-transform: uppercase; }
+  .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.8); } }
+  h1 { font-family: 'Syne', sans-serif; font-size: clamp(2.6rem, 7vw, 5rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 1.1rem; max-width: 800px; }
+  h1 em { font-style: normal; background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .hero-sub { font-size: 1.05rem; color: var(--muted); max-width: 500px; margin-bottom: 2rem; font-weight: 300; line-height: 1.7; }
+  .hero-ctas { display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; margin-bottom: 3rem; }
+  .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #000; font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 0.9rem; padding: 0.75rem 1.75rem; border-radius: 100px; border: none; cursor: pointer; transition: transform 0.2s, opacity 0.2s; text-decoration: none; display: inline-block; }
+  .btn-primary:hover { transform: translateY(-2px); opacity: 0.9; }
+  .btn-ghost { background: transparent; color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 0.9rem; padding: 0.75rem 1.75rem; border-radius: 100px; border: 1px solid var(--border2); cursor: pointer; transition: border-color 0.2s, background 0.2s; text-decoration: none; display: inline-block; }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.04); }
+  .stats { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; }
+  .stat { text-align: center; }
+  .stat-num { font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 800; color: var(--text); letter-spacing: -0.02em; }
+  .stat-label { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.1rem; }
+  .stat-divider { width: 1px; background: var(--border); align-self: stretch; }
 
-  .panel { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; }
-  .panel-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.9rem; color: var(--text); margin-bottom: 1.25rem; letter-spacing: -0.01em; display: flex; align-items: center; gap: 0.5rem; }
-  .panel-title::before { content: ''; width: 3px; height: 14px; background: var(--accent); border-radius: 2px; display: block; }
+  section { padding: 3.5rem 5%; position: relative; }
+  .section-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); font-weight: 500; margin-bottom: 0.5rem; }
+  .section-title { font-family: 'Syne', sans-serif; font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; letter-spacing: -0.025em; line-height: 1.15; margin-bottom: 0.6rem; max-width: 580px; }
+  .section-sub { color: var(--muted); font-size: 0.95rem; max-width: 460px; font-weight: 300; line-height: 1.7; }
 
-  .form-group { margin-bottom: 1rem; }
-  label { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 500; margin-bottom: 0.35rem; }
-  input, select { width: 100%; background: var(--bg2); border: 1px solid var(--border2); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 0.875rem; font-weight: 300; padding: 0.6rem 0.85rem; border-radius: 8px; outline: none; transition: border-color 0.2s; }
-  input:focus, select:focus { border-color: rgba(0,229,255,0.4); }
-  select option { background: var(--surface); }
+  .how { background: var(--bg2); }
+  .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem; }
+  .step-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 1.4rem; transition: border-color 0.3s, transform 0.3s; }
+  .step-card:hover { border-color: rgba(0,229,255,0.2); transform: translateY(-3px); }
+  .step-num { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: rgba(0,229,255,0.12); line-height: 1; margin-bottom: 0.75rem; }
+  .step-title { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text); }
+  .step-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.6; font-weight: 300; }
 
-  .industry-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; margin-top: 0.35rem; }
-  .ind-check { display: flex; align-items: center; gap: 0.4rem; background: var(--bg2); border: 1px solid var(--border); border-radius: 7px; padding: 0.4rem 0.6rem; cursor: pointer; transition: border-color 0.2s, background 0.2s; font-size: 0.78rem; color: var(--muted); }
-  .ind-check:hover { border-color: var(--border2); color: var(--text); }
-  .ind-check.active { border-color: rgba(0,229,255,0.35); background: rgba(0,229,255,0.06); color: var(--accent); }
-  .ind-check input[type=checkbox] { display: none; }
+  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1px; border: 1px solid var(--border); border-radius: 18px; overflow: hidden; margin-top: 2rem; background: var(--border); }
+  .feat { background: var(--bg); padding: 1.6rem; transition: background 0.3s; }
+  .feat:hover { background: var(--surface); }
+  .feat-icon { width: 36px; height: 36px; border-radius: 9px; background: rgba(0,229,255,0.08); border: 1px solid rgba(0,229,255,0.15); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-size: 16px; }
+  .feat-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem; margin-bottom: 0.4rem; }
+  .feat-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.6; font-weight: 300; }
 
-  .btn { width: 100%; background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #000; font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 0.9rem; padding: 0.75rem; border-radius: 100px; border: none; cursor: pointer; transition: opacity 0.2s, transform 0.15s; margin-top: 0.5rem; }
-  .btn:hover { opacity: 0.88; transform: translateY(-1px); }
-  .btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
-  .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border2); border-radius: 100px; font-family: 'DM Sans', sans-serif; font-size: 0.8rem; padding: 0.5rem 1.25rem; cursor: pointer; transition: background 0.2s; }
-  .btn-ghost:hover { background: rgba(255,255,255,0.05); }
+  .industries { background: var(--bg2); }
+  .industries-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.75rem; }
+  .ind-pill { display: flex; align-items: center; gap: 0.45rem; background: var(--surface); border: 1px solid var(--border); border-radius: 100px; padding: 0.4rem 1rem; font-size: 0.83rem; color: var(--muted); transition: border-color 0.2s, color 0.2s; }
+  .ind-pill:hover { border-color: rgba(0,229,255,0.3); color: var(--text); }
+  .ind-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent2); }
 
-  .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-bottom: 1.25rem; }
-  .stat-box { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 0.85rem 1rem; text-align: center; }
-  .stat-box .num { font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--text); line-height: 1; }
-  .stat-box .lbl { font-size: 0.68rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; margin-top: 0.2rem; }
+  .pricing-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; max-width: 700px; margin: 2rem auto 0; }
+  @media (max-width: 600px) { .pricing-cards { grid-template-columns: 1fr; } }
+  .pricing-card { background: var(--surface); border: 1px solid var(--border2); border-radius: 20px; padding: 2rem; position: relative; overflow: hidden; }
+  .pricing-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3)); }
+  .pricing-card.featured { border-color: rgba(0,229,255,0.25); }
+  .price { font-family: 'Syne', sans-serif; font-size: 2.5rem; font-weight: 800; letter-spacing: -0.04em; color: var(--text); line-height: 1; margin-bottom: 0.2rem; }
+  .price sub { font-size: 0.9rem; font-weight: 400; color: var(--muted); vertical-align: baseline; margin-right: 0.1rem; }
+  .price-note { font-size: 0.75rem; color: var(--muted); margin-bottom: 1.25rem; font-weight: 300; }
+  .price-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); font-weight: 500; margin-bottom: 0.5rem; }
+  .price-features { list-style: none; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem; }
+  .price-features li { display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.83rem; color: var(--muted); font-weight: 300; }
+  .check { width: 17px; height: 17px; border-radius: 50%; background: rgba(0,229,255,0.1); border: 1px solid rgba(0,229,255,0.3); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; color: var(--accent); font-size: 9px; }
 
-  .log { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; min-height: 80px; max-height: 140px; overflow-y: auto; margin-bottom: 1.25rem; font-size: 0.78rem; font-family: 'DM Sans', sans-serif; }
-  .log-line { padding: 0.15rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); display: flex; gap: 0.5rem; align-items: flex-start; }
-  .log-line:last-child { border-bottom: none; }
-  .log-time { color: var(--muted); flex-shrink: 0; font-size: 0.7rem; }
-  .log-msg { color: var(--text); }
-  .log-msg.success { color: var(--success); }
-  .log-msg.warning { color: var(--warning); }
-  .log-msg.error { color: var(--danger); }
+  .contact { background: var(--bg2); }
+  .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; margin-top: 2rem; }
+  @media (max-width: 768px) { .contact-wrap { grid-template-columns: 1fr; gap: 2rem; } .nav-links a:not(.btn-nav) { display: none; } h1 { font-size: 2.4rem; } }
+  .form-group { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1rem; }
+  label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 500; }
+  input, select, textarea { background: var(--surface); border: 1px solid var(--border); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 300; padding: 0.65rem 0.9rem; border-radius: 9px; outline: none; transition: border-color 0.2s; width: 100%; }
+  input:focus, select:focus, textarea:focus { border-color: rgba(0,229,255,0.35); }
+  select option { background: var(--bg3); }
+  textarea { resize: vertical; min-height: 100px; }
+  .btn-submit { width: 100%; background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #000; font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 0.9rem; padding: 0.8rem; border-radius: 100px; border: none; cursor: pointer; transition: opacity 0.2s, transform 0.15s; margin-top: 0.25rem; }
+  .btn-submit:hover { opacity: 0.85; transform: translateY(-1px); }
+  .contact-info h3 { font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 0.75rem; letter-spacing: -0.02em; }
+  .contact-info p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; font-weight: 300; margin-bottom: 1.5rem; }
+  .contact-detail { display: flex; align-items: center; gap: 0.65rem; font-size: 0.83rem; color: var(--muted); margin-bottom: 0.6rem; }
+  .contact-detail-icon { width: 30px; height: 30px; border-radius: 7px; background: rgba(0,229,255,0.06); border: 1px solid rgba(0,229,255,0.12); display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; }
 
-  .results-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
-  .results-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.9rem; }
-  .push-btn { background: var(--success); color: #000; font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 0.8rem; padding: 0.45rem 1.1rem; border-radius: 100px; border: none; cursor: pointer; transition: opacity 0.2s; }
-  .push-btn:hover { opacity: 0.85; }
-  .push-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  footer { text-align: center; padding: 2rem 5%; border-top: 1px solid var(--border); font-size: 0.78rem; color: var(--muted2); }
 
-  table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
-  thead tr { background: var(--bg2); }
-  th { padding: 0.6rem 0.75rem; text-align: left; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); font-weight: 500; border-bottom: 1px solid var(--border); white-space: nowrap; }
-  td { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--border); color: var(--muted); vertical-align: middle; }
-  td.name { color: var(--text); font-weight: 500; }
-  tr:hover td { background: rgba(255,255,255,0.02); }
-  .tag { display: inline-block; padding: 0.2rem 0.55rem; border-radius: 100px; font-size: 0.68rem; font-weight: 500; }
-  .tag.has-email { background: rgba(0,196,140,0.12); color: var(--success); border: 1px solid rgba(0,196,140,0.25); }
-  .tag.no-email { background: rgba(240,165,0,0.1); color: var(--warning); border: 1px solid rgba(240,165,0,0.2); }
-  .tag.pushed { background: rgba(0,229,255,0.08); color: var(--accent); border: 1px solid rgba(0,229,255,0.2); }
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: none; }
 
-  .empty-state { text-align: center; padding: 3rem 1rem; color: var(--muted); }
-  .empty-state .icon { font-size: 2rem; margin-bottom: 0.75rem; opacity: 0.4; }
-  .empty-state p { font-size: 0.875rem; }
-
-  .progress-bar { height: 3px; background: var(--border); border-radius: 3px; margin-bottom: 1rem; overflow: hidden; }
-  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent2)); border-radius: 3px; transition: width 0.4s ease; width: 0%; }
-
-  ::-webkit-scrollbar { width: 4px; }
-  ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 4px; }
+  .wave-line { display: flex; align-items: center; gap: 3px; margin-bottom: 2rem; }
+  .wave-bar { width: 3px; border-radius: 3px; background: var(--accent); opacity: 0.6; animation: wave 1.4s ease-in-out infinite; }
+  @keyframes wave { 0%, 100% { transform: scaleY(1); opacity: 0.4; } 50% { transform: scaleY(2.5); opacity: 0.9; } }
 </style>
 </head>
 <body>
 
-<div class="header">
-  <div class="logo">Elevation<span>.</span> Prospector</div>
-  <div class="badge">Lead Finder</div>
-</div>
+<nav>
+  <a href="#" class="logo">Elevation<span>.</span></a>
+  <div class="nav-links">
+    <a href="#how">How it works</a>
+    <a href="#features">Features</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#contact" class="btn-nav">Book a call</a>
+  </div>
+</nav>
 
-<div class="grid">
-  <!-- LEFT PANEL: Controls -->
-  <div>
-    <div class="panel">
-      <div class="panel-title">Search Settings</div>
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="badge"><span class="badge-dot"></span>AI-Powered Voice Receptionist</div>
+  <h1>Your phones answered.<br><em>24 hours a day.</em></h1>
+  <p class="hero-sub">Elevation Studio builds custom AI receptionists that book appointments, answer patient questions, and never put a caller on hold — even at 2am.</p>
+  <div class="hero-ctas">
+    <a href="#contact" class="btn-primary">Book a free demo</a>
+    <a href="#how" class="btn-ghost">See how it works</a>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="stat-num">24/7</div><div class="stat-label">Always available</div></div>
+    <div class="stat-divider"></div>
+    <div class="stat"><div class="stat-num">&lt;1s</div><div class="stat-label">Answer time</div></div>
+    <div class="stat-divider"></div>
+    <div class="stat"><div class="stat-num">0</div><div class="stat-label">Missed calls</div></div>
+    <div class="stat-divider"></div>
+    <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Custom to you</div></div>
+  </div>
+</section>
 
-      <div class="form-group">
-        <label>City</label>
-        <input type="text" id="city" placeholder="e.g. Madison">
+<section class="how" id="how">
+  <div class="section-label">Process</div>
+  <h2 class="section-title">Up and running in days, not months</h2>
+  <p class="section-sub">We build, train, and deploy your AI receptionist. You just answer the appointments.</p>
+  <div class="steps-grid fade-in">
+    <div class="step-card"><div class="step-num">01</div><div class="step-title">Discovery call</div><div class="step-desc">We learn your business, your services, your FAQs, and how you want calls handled.</div></div>
+    <div class="step-card"><div class="step-num">02</div><div class="step-title">Custom build</div><div class="step-desc">We train your AI receptionist with your exact voice, scripts, and booking logic.</div></div>
+    <div class="step-card"><div class="step-num">03</div><div class="step-title">Integration</div><div class="step-desc">We connect to your existing phone system and calendar. No new hardware needed.</div></div>
+    <div class="step-card"><div class="step-num">04</div><div class="step-title">Go live</div><div class="step-desc">Your AI receptionist starts answering calls. We monitor and optimize in real time.</div></div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="section-label">Features</div>
+  <h2 class="section-title">Everything a receptionist does — amplified</h2>
+  <div class="features-grid fade-in">
+    <div class="feat"><div class="feat-icon">📞</div><div class="feat-title">Instant call answering</div><div class="feat-desc">Every call answered in under a second. No hold music, no voicemail, no missed patients.</div></div>
+    <div class="feat"><div class="feat-icon">📅</div><div class="feat-title">Appointment booking</div><div class="feat-desc">Connects to your calendar and books appointments in real time during the call.</div></div>
+    <div class="feat"><div class="feat-icon">🧠</div><div class="feat-title">Trained on your business</div><div class="feat-desc">Knows your services, hours, staff, and FAQs — answers like a 5-year employee.</div></div>
+    <div class="feat"><div class="feat-icon">🌙</div><div class="feat-title">After-hours coverage</div><div class="feat-desc">Handles calls nights, weekends, and holidays so you never lose a lead to voicemail.</div></div>
+    <div class="feat"><div class="feat-icon">🌍</div><div class="feat-title">Multilingual</div><div class="feat-desc">Speaks to callers in their language — English, Spanish, French, and more.</div></div>
+    <div class="feat"><div class="feat-icon">📊</div><div class="feat-title">Call analytics</div><div class="feat-desc">Dashboard showing call volume, common questions, bookings, and recovered revenue.</div></div>
+  </div>
+</section>
+
+<section class="industries" id="industries">
+  <div class="section-label">Who it's for</div>
+  <h2 class="section-title">Built for businesses that run on phone calls</h2>
+  <p class="section-sub">If your business misses calls, loses leads, or pays staff to answer phones — this is for you.</p>
+  <div class="industries-row fade-in">
+    <div class="ind-pill"><span class="ind-dot"></span>Dental Clinics</div>
+    <div class="ind-pill"><span class="ind-dot"></span>Medical Practices</div>
+    <div class="ind-pill"><span class="ind-dot"></span>Law Firms</div>
+    <div class="ind-pill"><span class="ind-dot"></span>HVAC & Plumbing</div>
+    <div class="ind-pill"><span class="ind-dot"></span>Hair Salons & Spas</div>
+    <div class="ind-pill"><span class="ind-dot"></span>Restaurants</div>
+    <div class="ind-pill"><span class="ind-dot"></span>Real Estate</div>
+    <div class="ind-pill"><span class="ind-dot"></span>Auto Repair</div>
+    <div class="ind-pill"><span class="ind-dot"></span>Chiropractic</div>
+    <div class="ind-pill"><span class="ind-dot"></span>Veterinary</div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="section-label" style="text-align:center">Pricing</div>
+  <h2 class="section-title" style="text-align:center; margin: 0 auto 0.4rem;">Simple, transparent pricing</h2>
+  <p class="section-sub" style="text-align:center; margin: 0 auto;">One flat investment. No per-minute fees. No surprises.</p>
+  <div class="pricing-cards fade-in">
+    <div class="pricing-card">
+      <div class="price-label">One-time setup</div>
+      <div class="price"><sub>from</sub>$2,500</div>
+      <div class="price-note">Paid once · varies by complexity</div>
+      <ul class="price-features">
+        <li><span class="check">✓</span>Custom AI receptionist build</li>
+        <li><span class="check">✓</span>Voice & script configuration</li>
+        <li><span class="check">✓</span>Calendar & phone integration</li>
+        <li><span class="check">✓</span>Testing & go-live support</li>
+      </ul>
+    </div>
+    <div class="pricing-card featured">
+      <div class="price-label">Monthly retainer</div>
+      <div class="price"><sub>$</sub>200<span style="font-size:1rem; font-weight:400; color:var(--muted)">/mo</span></div>
+      <div class="price-note">Ongoing · cancel anytime</div>
+      <ul class="price-features">
+        <li><span class="check">✓</span>Unlimited call handling, 24/7</li>
+        <li><span class="check">✓</span>After-hours & weekend coverage</li>
+        <li><span class="check">✓</span>Multilingual support</li>
+        <li><span class="check">✓</span>Ongoing optimization & support</li>
+        <li><span class="check">✓</span>Call analytics dashboard</li>
+      </ul>
+    </div>
+  </div>
+  <div style="text-align:center; margin-top: 1.5rem;">
+    <a href="#contact" class="btn-primary">Book a free demo call</a>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="section-label">Get started</div>
+  <h2 class="section-title">Let's build your AI receptionist</h2>
+  <div class="contact-wrap">
+    <div class="contact-info fade-in">
+      <div class="wave-line">
+        <div class="wave-bar" style="height:12px; animation-delay:0s"></div>
+        <div class="wave-bar" style="height:20px; animation-delay:0.1s"></div>
+        <div class="wave-bar" style="height:28px; animation-delay:0.2s"></div>
+        <div class="wave-bar" style="height:16px; animation-delay:0.3s"></div>
+        <div class="wave-bar" style="height:24px; animation-delay:0.4s"></div>
+        <div class="wave-bar" style="height:10px; animation-delay:0.5s"></div>
+        <div class="wave-bar" style="height:22px; animation-delay:0.6s"></div>
+        <div class="wave-bar" style="height:18px; animation-delay:0.7s"></div>
+        <div class="wave-bar" style="height:30px; animation-delay:0.8s"></div>
+        <div class="wave-bar" style="height:14px; animation-delay:0.9s"></div>
       </div>
+      <h3>Book a free 30-minute demo</h3>
+      <p>Tell us about your business and we'll show you exactly how your AI receptionist would handle your calls — live, on the spot.</p>
+      <div class="contact-detail"><span class="contact-detail-icon">📍</span><span>Madison, WI — serving clients nationwide</span></div>
+      <div class="contact-detail"><span class="contact-detail-icon">⚡</span><span>Response within 24 hours</span></div>
+      <div class="contact-detail"><span class="contact-detail-icon">🎯</span><span>No commitment required</span></div>
+    </div>
+    <form onsubmit="handleSubmit(event)">
+      <div class="form-group"><label>Business name</label><input type="text" placeholder="Madison Family Dental" required></div>
+      <div class="form-group"><label>Your name</label><input type="text" placeholder="Dr. Sarah Johnson" required></div>
+      <div class="form-group"><label>Email</label><input type="email" placeholder="hello@yourbusiness.com" required></div>
+      <div class="form-group"><label>Phone</label><input type="tel" placeholder="(608) 555-0100"></div>
       <div class="form-group">
-        <label>State</label>
-        <input type="text" id="state" placeholder="e.g. WI" maxlength="2">
-      </div>
-      <div class="form-group">
-        <label>Results per industry</label>
-        <select id="limit">
-          <option value="5">5</option>
-          <option value="10" selected>10</option>
-          <option value="20">20</option>
+        <label>Industry</label>
+        <select>
+          <option value="">Select your industry...</option>
+          <option>Dental Clinic</option>
+          <option>Medical Practice</option>
+          <option>Law Firm</option>
+          <option>HVAC / Plumbing</option>
+          <option>Salon / Spa</option>
+          <option>Restaurant</option>
+          <option>Real Estate</option>
+          <option>Auto Repair</option>
+          <option>Other</option>
         </select>
       </div>
-
-      <div class="form-group">
-        <label>Industries to search</label>
-        <div class="industry-grid" id="industryGrid">
-          <div class="ind-check active" data-value="dental clinic" onclick="toggleIndustry(this)"><input type="checkbox" checked>🦷 Dental</div>
-          <div class="ind-check active" data-value="medical clinic" onclick="toggleIndustry(this)"><input type="checkbox" checked>🏥 Medical</div>
-          <div class="ind-check active" data-value="law firm" onclick="toggleIndustry(this)"><input type="checkbox" checked>⚖️ Law Firm</div>
-          <div class="ind-check active" data-value="hvac plumbing" onclick="toggleIndustry(this)"><input type="checkbox" checked>🔧 HVAC</div>
-          <div class="ind-check active" data-value="hair salon spa" onclick="toggleIndustry(this)"><input type="checkbox" checked>💇 Salon/Spa</div>
-          <div class="ind-check active" data-value="restaurant" onclick="toggleIndustry(this)"><input type="checkbox" checked>🍽️ Restaurant</div>
-          <div class="ind-check" data-value="real estate agency" onclick="toggleIndustry(this)"><input type="checkbox">🏠 Real Estate</div>
-          <div class="ind-check" data-value="auto repair shop" onclick="toggleIndustry(this)"><input type="checkbox">🚗 Auto Repair</div>
-          <div class="ind-check" data-value="chiropractor" onclick="toggleIndustry(this)"><input type="checkbox">🦴 Chiro</div>
-          <div class="ind-check" data-value="veterinary clinic" onclick="toggleIndustry(this)"><input type="checkbox">🐾 Vet</div>
-        </div>
-      </div>
-
-      <button class="btn" id="searchBtn" onclick="startSearch()">Find Businesses</button>
-    </div>
-
-    <div class="panel" style="margin-top:1rem;">
-      <div class="panel-title">Google Sheets Config</div>
-      <div class="form-group">
-        <label>Places API Key</label>
-        <input type="password" id="placesKey" placeholder="AIza...">
-      </div>
-      <div class="form-group">
-        <label>Sheet ID</label>
-        <input type="text" id="sheetId" placeholder="Sheet ID from URL">
-      </div>
-      <div class="form-group">
-        <label>Service Account JSON</label>
-        <textarea id="serviceJson" style="width:100%; background:var(--bg2); border:1px solid var(--border2); color:var(--text); font-family:monospace; font-size:0.7rem; padding:0.6rem; border-radius:8px; height:80px; resize:none; outline:none;" placeholder='{"type":"service_account",...}'></textarea>
-      </div>
-    </div>
+      <div class="form-group"><label>How many calls do you miss per week?</label><textarea placeholder="We miss roughly 10-15 after-hours calls..."></textarea></div>
+      <button type="submit" class="btn-submit">Book my free demo →</button>
+    </form>
   </div>
+</section>
 
-  <!-- RIGHT PANEL: Results -->
-  <div class="panel">
-    <div class="stats-row">
-      <div class="stat-box"><div class="num" id="totalFound">0</div><div class="lbl">Found</div></div>
-      <div class="stat-box"><div class="num" id="totalEmail">0</div><div class="lbl">Has Email</div></div>
-      <div class="stat-box"><div class="num" id="totalPushed">0</div><div class="lbl">Pushed</div></div>
-    </div>
-
-    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-
-    <div class="log" id="log">
-      <div class="log-line"><span class="log-time">--:--</span><span class="log-msg">Ready. Configure settings and click Find Businesses.</span></div>
-    </div>
-
-    <div class="results-header">
-      <div class="results-title">Results <span id="resultCount" style="color:var(--muted); font-weight:400; font-size:0.8rem;"></span></div>
-      <div style="display:flex; gap:0.5rem; align-items:center;">
-        <button class="btn-ghost" onclick="clearResults()">Clear</button>
-        <button class="push-btn" id="pushBtn" onclick="pushToSheets()" disabled>Push to Google Sheets</button>
-      </div>
-    </div>
-
-    <div style="overflow-x:auto;">
-      <table id="resultsTable">
-        <thead>
-          <tr>
-            <th>Business Name</th>
-            <th>Industry</th>
-            <th>City</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>Website</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody id="resultsBody">
-          <tr><td colspan="7"><div class="empty-state"><div class="icon">🔍</div><p>Search results will appear here</p></div></td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
+<footer><p>© 2025 Elevation Studio. All rights reserved.</p></footer>
 
 <script>
-// ---- CONFIG ----
-const INDUSTRY_MAP = {
-  'dental clinic': 'Dental Clinic',
-  'medical clinic': 'Medical Practice',
-  'law firm': 'Law Firm',
-  'hvac plumbing': 'HVAC / Plumbing',
-  'hair salon spa': 'Hair Salon / Spa',
-  'restaurant': 'Restaurant',
-  'real estate agency': 'Real Estate',
-  'auto repair shop': 'Auto Repair',
-  'chiropractor': 'Chiropractic',
-  'veterinary clinic': 'Veterinary'
-};
-
-let results = [];
-let searching = false;
-
-function toggleIndustry(el) {
-  el.classList.toggle('active');
-}
-
-function getSelectedIndustries() {
-  return [...document.querySelectorAll('.ind-check.active')].map(el => el.dataset.value);
-}
-
-function log(msg, type='') {
-  const logEl = document.getElementById('log');
-  const now = new Date();
-  const time = now.toTimeString().slice(0,5);
-  const line = document.createElement('div');
-  line.className = 'log-line';
-  line.innerHTML = `<span class="log-time">${time}</span><span class="log-msg ${type}">${msg}</span>`;
-  logEl.appendChild(line);
-  logEl.scrollTop = logEl.scrollHeight;
-}
-
-function setProgress(pct) {
-  document.getElementById('progressFill').style.width = pct + '%';
-}
-
-function updateStats() {
-  document.getElementById('totalFound').textContent = results.length;
-  document.getElementById('totalEmail').textContent = results.filter(r => r.email).length;
-  document.getElementById('totalPushed').textContent = results.filter(r => r.pushed).length;
-  document.getElementById('resultCount').textContent = results.length > 0 ? `(${results.length})` : '';
-}
-
-async function fetchWithProxy(url) {
-  const proxies = [
-    u => `https://api.allorigins.win/get?url=${encodeURIComponent(u)}`,
-    u => `https://corsproxy.io/?${encodeURIComponent(u)}`,
-    u => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(u)}`
-  ];
-  for (const makeUrl of proxies) {
-    try {
-      const res = await fetch(makeUrl(url), { signal: AbortSignal.timeout(8000) });
-      if (!res.ok) continue;
-      const text = await res.text();
-      try { const json = JSON.parse(text); if (json.contents) return json.contents; } catch(e) {}
-      return text;
-    } catch(e) { continue; }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.btn-submit');
+    btn.textContent = '✓ Request sent! We\'ll be in touch soon.';
+    btn.style.background = 'linear-gradient(135deg, #00c48c, #007a5c)';
+    btn.disabled = true;
   }
-  throw new Error('Failed to fetch');
-}
-
-async function searchPlaces(query, city, state, apiKey, limit) {
-  const location = `${city}, ${state}`;
-  const searchQuery = `${query} in ${location}`;
-  const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent(searchQuery)}&key=${apiKey}`;
-  
-  try {
-    const html = await fetchWithProxy(url);
-    const data = JSON.parse(html);
-    if (data.status !== 'OK' && data.status !== 'ZERO_RESULTS') {
-      throw new Error(data.status);
-    }
-    return (data.results || []).slice(0, parseInt(limit));
-  } catch(e) {
-    throw new Error(`Places API error: ${e.message}`);
-  }
-}
-
-async function getPlaceDetails(placeId, apiKey) {
-  const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=name,formatted_phone_number,website,formatted_address&key=${apiKey}`;
-  try {
-    const html = await fetchWithProxy(url);
-    const data = JSON.parse(html);
-    return data.result || {};
-  } catch(e) {
-    return {};
-  }
-}
-
-async function extractEmailFromWebsite(websiteUrl) {
-  if (!websiteUrl) return '';
-  try {
-    const html = await fetchWithProxy(websiteUrl);
-    const emailRegex = /[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}/g;
-    const matches = html.match(emailRegex) || [];
-    const filtered = matches.filter(e =>
-      !e.includes('example.com') &&
-      !e.includes('sentry') &&
-      !e.includes('wix') &&
-      !e.includes('google') &&
-      !e.includes('schema') &&
-      !e.includes('@2x') &&
-      e.length < 60
-    );
-    return filtered[0] || '';
-  } catch(e) {
-    return '';
-  }
-}
-
-function renderResults() {
-  const tbody = document.getElementById('resultsBody');
-  if (results.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="7"><div class="empty-state"><div class="icon">🔍</div><p>Search results will appear here</p></div></td></tr>';
-    return;
-  }
-  tbody.innerHTML = results.map((r, i) => `
-    <tr>
-      <td class="name">${r.name}</td>
-      <td>${r.industry}</td>
-      <td>${r.city}</td>
-      <td>${r.phone || '<span style="color:var(--muted)">—</span>'}</td>
-      <td>${r.email || '<span style="color:var(--muted)">—</span>'}</td>
-      <td>${r.website ? `<a href="${r.website}" target="_blank" style="color:var(--accent2); font-size:0.75rem;">Visit</a>` : '<span style="color:var(--muted)">—</span>'}</td>
-      <td>${r.pushed ? '<span class="tag pushed">Pushed</span>' : r.email ? '<span class="tag has-email">Has Email</span>' : '<span class="tag no-email">No Email</span>'}</td>
-    </tr>
-  `).join('');
-}
-
-async function startSearch() {
-  if (searching) return;
-  const city = document.getElementById('city').value.trim();
-  const state = document.getElementById('state').value.trim();
-  const apiKey = document.getElementById('placesKey').value.trim();
-  const limit = document.getElementById('limit').value;
-  const industries = getSelectedIndustries();
-
-  if (!city || !state) { log('Please enter a city and state.', 'error'); return; }
-  if (!apiKey) { log('Please enter your Google Places API key.', 'error'); return; }
-  if (industries.length === 0) { log('Please select at least one industry.', 'error'); return; }
-
-  searching = true;
-  results = [];
-  document.getElementById('searchBtn').disabled = true;
-  document.getElementById('pushBtn').disabled = true;
-  renderResults();
-  updateStats();
-  setProgress(0);
-
-  log(`Starting search in ${city}, ${state} for ${industries.length} industries...`);
-
-  let total = industries.length;
-  let done = 0;
-
-  for (const industry of industries) {
-    const label = INDUSTRY_MAP[industry];
-    log(`Searching ${label}...`);
-    try {
-      const places = await searchPlaces(industry, city, state, apiKey, limit);
-      log(`Found ${places.length} ${label} businesses`, 'success');
-
-      for (const place of places) {
-        const details = await getPlaceDetails(place.place_id, apiKey);
-        const addrParts = (details.formatted_address || place.formatted_address || '').split(',');
-        const cityName = addrParts.length > 1 ? addrParts[addrParts.length - 3]?.trim() || city : city;
-
-        let email = '';
-        if (details.website) {
-          log(`Scanning ${place.name} website for email...`);
-          email = await extractEmailFromWebsite(details.website);
-          if (email) log(`Found email: ${email}`, 'success');
-        }
-
-        results.push({
-          name: place.name,
-          industry: label,
-          city: cityName || city,
-          state: state.toUpperCase(),
-          phone: details.formatted_phone_number || '',
-          email: email,
-          website: details.website || '',
-          pushed: false
-        });
-
-        renderResults();
-        updateStats();
-      }
-    } catch(e) {
-      log(`Error searching ${label}: ${e.message}`, 'error');
-    }
-
-    done++;
-    setProgress(Math.round((done / total) * 100));
-  }
-
-  log(`Search complete. ${results.length} businesses found.`, 'success');
-  searching = false;
-  document.getElementById('searchBtn').disabled = false;
-  if (results.length > 0) document.getElementById('pushBtn').disabled = false;
-}
-
-async function getAccessToken(serviceAccount) {
-  const header = { alg: 'RS256', typ: 'JWT' };
-  const now = Math.floor(Date.now() / 1000);
-  const claim = {
-    iss: serviceAccount.client_email,
-    scope: 'https://www.googleapis.com/auth/spreadsheets',
-    aud: 'https://oauth2.googleapis.com/token',
-    exp: now + 3600,
-    iat: now
-  };
-
-  const encode = obj => btoa(JSON.stringify(obj)).replace(/=/g,'').replace(/\+/g,'-').replace(/\//g,'_');
-  const toSign = encode(header) + '.' + encode(claim);
-
-  const pemHeader = '-----BEGIN PRIVATE KEY-----';
-  const pemFooter = '-----END PRIVATE KEY-----';
-  const pem = serviceAccount.private_key.replace(/\\n/g, '\n');
-  const pemBody = pem.replace(pemHeader,'').replace(pemFooter,'').replace(/\s/g,'');
-  const binaryDer = Uint8Array.from(atob(pemBody), c => c.charCodeAt(0));
-
-  const key = await crypto.subtle.importKey(
-    'pkcs8', binaryDer.buffer,
-    { name: 'RSASSA-PKCS1-v1_5', hash: 'SHA-256' },
-    false, ['sign']
-  );
-
-  const encoder = new TextEncoder();
-  const sig = await crypto.subtle.sign('RSASSA-PKCS1-v1_5', key, encoder.encode(toSign));
-  const sigB64 = btoa(String.fromCharCode(...new Uint8Array(sig))).replace(/=/g,'').replace(/\+/g,'-').replace(/\//g,'_');
-  const jwt = toSign + '.' + sigB64;
-
-  const tokenRes = await fetch('https://oauth2.googleapis.com/token', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: `grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&assertion=${jwt}`
-  });
-  const tokenData = await tokenRes.json();
-  if (!tokenData.access_token) throw new Error('Failed to get access token: ' + JSON.stringify(tokenData));
-  return tokenData.access_token;
-}
-
-async function pushToSheets() {
-  const sheetId = document.getElementById('sheetId').value.trim();
-  const serviceJsonRaw = document.getElementById('serviceJson').value.trim();
-
-  if (!sheetId) { log('Please enter your Google Sheet ID.', 'error'); return; }
-  if (!serviceJsonRaw) { log('Please paste your Service Account JSON.', 'error'); return; }
-
-  let serviceAccount;
-  try {
-    serviceAccount = JSON.parse(serviceJsonRaw);
-  } catch(e) {
-    log('Invalid Service Account JSON. Please check the format.', 'error');
-    return;
-  }
-
-  const unpushed = results.filter(r => !r.pushed);
-  if (unpushed.length === 0) { log('All results already pushed.', 'warning'); return; }
-
-  document.getElementById('pushBtn').disabled = true;
-  log(`Authenticating with Google Sheets...`);
-
-  try {
-    const token = await getAccessToken(serviceAccount);
-    log('Authenticated successfully.', 'success');
-
-    // Get existing sheet data to avoid duplicates
-    const getRes = await fetch(
-      `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/Sheet1!A:A`,
-      { headers: { Authorization: `Bearer ${token}` } }
-    );
-    const existing = await getRes.json();
-    const existingNames = (existing.values || []).flat().map(n => n.toLowerCase());
-
-    const rows = unpushed
-      .filter(r => !existingNames.includes(r.name.toLowerCase()))
-      .map(r => [r.name, '', r.industry, r.city, r.state, r.phone, r.email, '', '', '', '']);
-
-    if (rows.length === 0) {
-      log('All businesses already exist in the sheet.', 'warning');
-      document.getElementById('pushBtn').disabled = false;
-      return;
-    }
-
-    const appendRes = await fetch(
-      `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/Sheet1!A:K:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS`,
-      {
-        method: 'POST',
-        headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ values: rows })
-      }
-    );
-
-    const appendData = await appendRes.json();
-    if (appendData.error) throw new Error(appendData.error.message);
-
-    unpushed.forEach(r => r.pushed = true);
-    renderResults();
-    updateStats();
-    log(`Successfully pushed ${rows.length} businesses to Google Sheets!`, 'success');
-
-  } catch(e) {
-    log(`Error: ${e.message}`, 'error');
-    document.getElementById('pushBtn').disabled = false;
-  }
-}
-
-function clearResults() {
-  results = [];
-  renderResults();
-  updateStats();
-  setProgress(0);
-  document.getElementById('pushBtn').disabled = true;
-  document.getElementById('log').innerHTML = '<div class="log-line"><span class="log-time">--:--</span><span class="log-msg">Cleared. Ready for new search.</span></div>';
-}
 </script>
 </body>
 </html>

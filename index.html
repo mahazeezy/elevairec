@@ -1,570 +1,298 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Teranga African Restaurant | Senegalese Cuisine | Chicago, IL</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elevation Studio — AI Receptionist</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
-:root{--gold:#C8953A;--gold-light:#E8B560;--dark:#0F0A04;--brown:#1E1008;--cream:#FDF6EC;--warm-white:#FFF9F2;--text:#1E0E02;--text-light:#6B4C2A;--green:#1A4A28;--nav-h:78px}
-*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'Lato',sans-serif;background:var(--warm-white);color:var(--text);overflow-x:hidden}
-nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--dark);display:flex;align-items:center;justify-content:space-between;padding:0 36px;z-index:1000;transition:.3s}
-nav.scrolled{background:rgba(15,10,4,.97);box-shadow:0 2px 24px rgba(0,0,0,.5)}
-.nav-logo{display:flex;flex-direction:column;text-decoration:none}.nav-logo .sc{font-family:'Dancing Script',cursive;color:var(--gold);font-size:2rem;line-height:1}.nav-logo .tg{font-size:.58rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:2px}
-.nav-social{display:flex;gap:18px}.nav-social a{color:rgba(255,255,255,.55);text-decoration:none;font-size:.85rem;transition:color .2s}.nav-social a:hover{color:var(--gold)}
-.nav-links{display:flex;gap:26px;list-style:none;align-items:center}.nav-links a{color:rgba(255,255,255,.82);text-decoration:none;font-size:.75rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;transition:color .2s;padding-bottom:3px;border-bottom:2px solid transparent}.nav-links a:hover{color:var(--gold);border-bottom-color:var(--gold)}
-.nav-links .cta{background:var(--gold);color:#fff!important;padding:9px 20px;border-radius:2px;border-bottom:none!important}.nav-links .cta:hover{background:var(--gold-light)}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}.hamburger span{display:block;width:24px;height:2px;background:#fff}
-.mnav{display:none;position:fixed;top:var(--nav-h);left:0;right:0;background:var(--dark);padding:24px 36px 36px;z-index:999;flex-direction:column;gap:18px;border-top:1px solid rgba(255,255,255,.07)}.mnav.open{display:flex}
-.mnav a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.8rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.06)}
-.mnav .cta-m{background:var(--gold);color:#fff!important;padding:12px 24px;text-align:center;border-bottom:none!important;border-radius:2px;margin-top:8px}
-.hero{position:relative;height:100vh;min-height:640px;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.h-bg{position:absolute;inset:0;background:linear-gradient(160deg,#0F0A04 0%,#1A0E06 35%,#0A1A0E 70%,#0F0A04 100%)}
-.h-pat{position:absolute;inset:0;opacity:.04;background-image:repeating-linear-gradient(60deg,var(--gold) 0,var(--gold) 1px,transparent 0,transparent 40%);background-size:28px 28px}
-.h-glow{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 45%,rgba(200,149,58,.12) 0%,transparent 70%)}
-.h-content{position:relative;z-index:2;text-align:center;padding:0 24px;color:#fff;animation:heroIn 1.3s cubic-bezier(.2,.8,.3,1) both}
-@keyframes heroIn{from{opacity:0;transform:translateY(50px)}to{opacity:1;transform:none}}
-.h-eye{font-size:.7rem;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;font-weight:700}
-.h-title{font-family:'Dancing Script',cursive;font-size:clamp(5rem,13vw,10rem);line-height:.88;margin-bottom:10px}
-.h-sub{font-family:'Playfair Display',serif;font-size:clamp(1rem,2.5vw,1.4rem);font-style:italic;color:rgba(255,255,255,.75);margin-bottom:14px}
-.h-tag{font-size:.78rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold-light);margin-bottom:42px}
-.h-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-.btn-g{background:var(--gold);color:#fff;padding:15px 38px;text-decoration:none;font-weight:700;letter-spacing:2px;font-size:.78rem;text-transform:uppercase;border-radius:2px;transition:all .2s;border:2px solid var(--gold);display:inline-block}.btn-g:hover{background:var(--gold-light);border-color:var(--gold-light)}
-.btn-o{border:2px solid rgba(255,255,255,.5);color:#fff;padding:15px 38px;text-decoration:none;font-weight:700;letter-spacing:2px;font-size:.78rem;text-transform:uppercase;border-radius:2px;transition:all .2s;display:inline-block}.btn-o:hover{border-color:var(--gold);color:var(--gold)}
-.h-scroll{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.4);font-size:.62rem;letter-spacing:3px;text-transform:uppercase;animation:pulse 2.5s ease infinite}
-.h-scroll::after{content:'';display:block;width:1px;height:44px;background:linear-gradient(to bottom,rgba(255,255,255,.3),transparent)}
-@keyframes pulse{0%,100%{opacity:.5;transform:translateX(-50%) translateY(0)}50%{opacity:1;transform:translateX(-50%) translateY(6px)}}
-.res-strip{background:var(--dark);padding:60px 24px;text-align:center}
-.res-strip h2{font-family:'Playfair Display',serif;font-size:1rem;color:rgba(255,255,255,.5);font-weight:400;letter-spacing:1px;margin-bottom:6px}
-.res-strip h3{font-family:'Dancing Script',cursive;font-size:2.8rem;color:var(--gold);margin-bottom:20px}
-.res-strip p{color:rgba(255,255,255,.65);margin-bottom:28px;max-width:420px;margin-left:auto;margin-right:auto;line-height:1.7;font-size:.95rem}
-.cat-strip{background:var(--green);padding:68px 24px;text-align:center}
-.sl-c{font-size:.68rem;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:700;margin-bottom:14px;display:flex;align-items:center;justify-content:center;gap:12px}
-.sl-c::before{content:'';width:28px;height:1px;background:rgba(255,255,255,.4)}
-.cat-strip h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.6rem);color:#fff;margin-bottom:14px}
-.cat-strip p{color:rgba(255,255,255,.78);max-width:480px;margin:0 auto 30px;line-height:1.7}
-.btn-w{background:#fff;color:var(--green);padding:14px 36px;text-decoration:none;font-weight:700;letter-spacing:2px;font-size:.78rem;text-transform:uppercase;border-radius:2px;transition:all .2s;display:inline-block}.btn-w:hover{background:var(--gold);color:#fff}
-.sw{position:relative;height:560px;overflow:hidden}
-.slide{position:absolute;inset:0;opacity:0;transition:opacity .9s ease}.slide.active{opacity:1}
-.s-bg{position:absolute;inset:0;transform:scale(1.06);transition:transform 8s ease}.slide.active .s-bg{transform:scale(1)}
-.sb1{background:linear-gradient(135deg,#2E1A08 0%,#8B4513 40%,#1A0E04 100%)}
-.sb2{background:linear-gradient(135deg,#0A1A10 0%,#1A4A20 40%,#0A0E08 100%)}
-.sb3{background:linear-gradient(135deg,#1A0A0A 0%,#6B1A10 40%,#0F0A04 100%)}
-.s-dim{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.85) 0%,rgba(0,0,0,.15) 55%)}
-.s-in{position:absolute;inset:0;display:flex;align-items:flex-end;padding:56px 64px}
-.s-txt{position:relative;z-index:2;color:#fff;max-width:640px}
-.s-txt h2{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,4vw,2.6rem);margin-bottom:12px;line-height:1.2}
-.s-txt p{color:rgba(255,255,255,.75);margin-bottom:22px;line-height:1.6}
-.s-txt a{color:var(--gold);text-decoration:none;font-weight:700;font-size:.78rem;letter-spacing:2px;text-transform:uppercase;border-bottom:2px solid var(--gold);padding-bottom:2px}
-.s-dots{position:absolute;bottom:28px;right:44px;display:flex;gap:8px;z-index:10}
-.dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;border:none;transition:background .3s}.dot.active{background:var(--gold)}
-.snav{position:absolute;top:50%;transform:translateY(-50%);z-index:10;background:rgba(0,0,0,.35);border:none;color:#fff;font-size:1.5rem;width:50px;height:50px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}.snav:hover{background:var(--gold)}
-.sp{left:16px}.sn{right:16px}
-.about{background:var(--dark);padding:100px 24px}
-.a-in{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.sl{font-size:.68rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:12px}.sl::before{content:'';width:30px;height:2px;background:var(--gold);display:block}
-.sh{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);line-height:1.15;margin-bottom:20px}.sh em{font-style:italic;color:var(--gold)}
-.about .sh{color:#fff}.sb{line-height:1.85;font-size:1rem;color:rgba(255,255,255,.68)}
-.a-prov{font-family:'Playfair Display',serif;font-style:italic;font-size:1.05rem;color:var(--gold-light);border-left:3px solid var(--gold);padding:16px 20px;margin:28px 0;line-height:1.6;background:rgba(200,149,58,.07)}
-.a-prov span{display:block;font-size:.82rem;color:rgba(255,255,255,.5);font-style:normal;margin-top:6px}
-.a-stats{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:36px}
-.stat{text-align:center}.stat-n{font-family:'Dancing Script',cursive;font-size:2.8rem;color:var(--gold);display:block;line-height:1;margin-bottom:6px}.stat-l{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.45)}
-.a-vis{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.avc{border-radius:3px;overflow:hidden;aspect-ratio:3/4;background:var(--brown)}.avc img{width:100%;height:100%;object-fit:cover;display:block}
-.av1{background:linear-gradient(145deg,#3A1A08,#8B5A2A);margin-top:40px}.av2{background:linear-gradient(145deg,#0A2010,#1A5030)}.av3{background:linear-gradient(145deg,#3A0A0A,#8B2010);margin-top:-40px}.av4{background:linear-gradient(145deg,#2A1A08,#6B4A20)}
-.svc-sec{background:var(--cream);padding:100px 24px}
-.svc-inner{max-width:1100px;margin:0 auto}
-.svc-hdr{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px;flex-wrap:wrap;gap:20px}
-.svc-hdr .sh{color:var(--text)}
-.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(200,149,58,.12)}
-.sc{background:var(--cream);padding:40px 28px;transition:background .2s}.sc:hover{background:#fff}
-.sc-num{font-family:'Dancing Script',cursive;font-size:3rem;color:var(--gold);opacity:.35;line-height:1;margin-bottom:16px}
-.sc-ico{font-size:2rem;margin-bottom:12px}
-.sc h3{font-family:'Playfair Display',serif;font-size:1.05rem;margin-bottom:10px}.sc p{font-size:.87rem;color:var(--text-light);line-height:1.65}
-.menu-sec{padding:100px 24px}
-.menu-in{max-width:1100px;margin:0 auto}
-.menu-hdr{text-align:center;margin-bottom:56px}
-.menu-hdr .sl{justify-content:center}.menu-hdr .sl::before{display:none}
-.menu-hdr .sh{color:var(--text)}
-.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(200,149,58,.1)}
-.mc{background:var(--warm-white);padding:0;overflow:hidden;transition:background .2s,transform .3s cubic-bezier(.25,.8,.25,1),box-shadow .3s ease}.mc:hover{background:#fff;transform:translateY(-6px);box-shadow:0 16px 48px rgba(200,149,58,.15)}
-.mc-img{width:100%;height:200px;overflow:hidden;background:var(--brown)}.mc-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
-.mc-body{padding:24px 26px 28px}
-.mc-body h3{font-family:'Playfair Display',serif;font-size:1.1rem;margin-bottom:8px}
-.mc-body p{font-size:.86rem;color:var(--text-light);line-height:1.6;margin-bottom:16px}
-.mc:hover .mc-img img{transform:scale(1.05)}
-.av1{background-image:url('https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=600&q=80');background-size:cover;background-position:center}
-.av2{background-image:url('https://images.unsplash.com/photo-1547592180-85f173990554?w=600&q=80');background-size:cover;background-position:center}
-.av3{background-image:url('https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80');background-size:cover;background-position:center}
-.av4{background-image:url('https://images.unsplash.com/photo-1580822184713-fc5400e7fe10?w=600&q=80');background-size:cover;background-position:center}
-.mc-body p{font-size:.86rem;color:var(--text-light);line-height:1.6;margin-bottom:16px}
-.mc-price{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--gold);font-weight:600}
-.mc-tag{display:inline-block;font-size:.62rem;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border:1px solid var(--gold);color:var(--gold);border-radius:2px;margin-top:10px}
-.menu-cta{text-align:center;margin-top:48px}
-.gal-sec{background:var(--dark);padding:100px 24px}
-.gal-hdr{text-align:center;margin-bottom:56px}.gal-hdr .sl{justify-content:center}.gal-hdr .sl::before{display:none}.gal-hdr .sh{color:#fff}
-.gal-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.gi{border-radius:3px;overflow:hidden;position:relative;cursor:pointer}
-.gi:nth-child(1){grid-column:span 2}.gi:nth-child(5){grid-column:span 2}
-.gbg{width:100%;min-height:220px;overflow:hidden;background:var(--brown)}.gbg img{width:100%;height:100%;min-height:220px;object-fit:cover;display:block;transition:transform .5s ease}
-.gi:nth-child(1) .gbg,.gi:nth-child(5) .gbg{min-height:300px}.gi:nth-child(1) .gbg img,.gi:nth-child(5) .gbg img{min-height:300px}
-.g1{background:linear-gradient(145deg,#3A1A08,#8B5A2A)}.g2{background:linear-gradient(145deg,#0A2010,#1A5030)}.g3{background:linear-gradient(145deg,#3A0A0A,#8B2010)}.g4{background:linear-gradient(145deg,#1A1208,#6B4A10)}.g5{background:linear-gradient(145deg,#0A1818,#1A4040)}.g6{background:linear-gradient(145deg,#2A1808,#8B5A20)}
-.gi:hover .gbg img{transform:scale(1.04)}
-.gov{position:absolute;inset:0;background:rgba(0,0,0,0);transition:.3s;display:flex;align-items:flex-end;padding:18px}.gi:hover .gov{background:rgba(0,0,0,.38)}
-.gcap{color:#fff;font-weight:700;font-size:.8rem;letter-spacing:1px;text-transform:uppercase;opacity:0;transition:.3s}.gi:hover .gcap{opacity:1}
-.rev-sec{padding:100px 24px}
-.rev-hdr{text-align:center;margin-bottom:56px}.rev-hdr .sl{justify-content:center}.rev-hdr .sl::before{display:none}.rev-hdr .sh{color:var(--text)}
-.rev-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.rc{background:var(--cream);padding:36px 30px;border-radius:3px;border-top:4px solid var(--gold)}
-.rc-stars{color:var(--gold);letter-spacing:2px;font-size:1rem;margin-bottom:18px}
-.rc-txt{font-style:italic;color:var(--text-light);line-height:1.75;margin-bottom:22px;font-size:.96rem}
-.rc-auth{font-weight:700;font-size:.82rem;letter-spacing:1.5px;text-transform:uppercase}
-.info{background:var(--brown);padding:72px 24px}
-.info-in{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:48px;text-align:center}
-.ic h3{font-family:'Dancing Script',cursive;font-size:2rem;color:var(--gold);margin-bottom:14px}
-.ic p{color:rgba(255,255,255,.68);line-height:1.85;font-size:.92rem}
-.ic a{color:var(--gold);text-decoration:none}.ic a:hover{text-decoration:underline}
-.id{width:40px;height:2px;background:rgba(200,149,58,.3);margin:14px auto}
-footer{background:var(--dark);padding:72px 24px 36px}
-.ft{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:56px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:32px}
-.fb .fs{font-family:'Dancing Script',cursive;font-size:2.6rem;color:var(--gold);display:block;margin-bottom:14px}
-.fb p{font-size:.9rem;line-height:1.75;color:rgba(255,255,255,.55);max-width:300px}
-.fsoc{display:flex;gap:12px;margin-top:22px}
-.fsoc a{width:38px;height:38px;border:1px solid rgba(255,255,255,.14);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.55);text-decoration:none;font-size:.78rem;font-weight:700;transition:all .2s}.fsoc a:hover{background:var(--gold);border-color:var(--gold);color:#fff}
-.fc h4{font-size:.68rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:22px}
-.fc ul{list-style:none}.fc ul li{margin-bottom:11px}
-.fc ul li a{color:rgba(255,255,255,.58);text-decoration:none;font-size:.9rem;transition:color .2s}.fc ul li a:hover{color:var(--gold)}
-.fb2{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:.8rem;color:rgba(255,255,255,.35)}
-.fb2 a{color:rgba(255,255,255,.35);text-decoration:none}.fb2 a:hover{color:var(--gold)}
-/* ── SCROLL ANIMATIONS ── */
-.reveal{opacity:0;transition:opacity .8s cubic-bezier(.25,.8,.25,1),transform .8s cubic-bezier(.25,.8,.25,1)}
-.reveal.visible{opacity:1!important;transform:none!important}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #080a0f;
+    --bg2: #0d1017;
+    --bg3: #111520;
+    --surface: #151b28;
+    --surface2: #1c2436;
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(255,255,255,0.12);
+    --accent: #00e5ff;
+    --accent2: #0066ff;
+    --accent3: #7b2fff;
+    --text: #f0f4ff;
+    --muted: rgba(240,244,255,0.45);
+    --muted2: rgba(240,244,255,0.25);
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E"); pointer-events: none; z-index: 0; opacity: 0.6; }
 
-/* Fade up (default) */
-.reveal{transform:translateY(48px)}
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1rem 5%; border-bottom: 1px solid var(--border); backdrop-filter: blur(20px); background: rgba(8,10,15,0.8); }
+  .logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.2rem; letter-spacing: -0.02em; color: var(--text); text-decoration: none; }
+  .logo span { color: var(--accent); }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; }
+  nav a:hover { color: var(--text); }
+  .nav-links { display: flex; gap: 2rem; align-items: center; }
+  .btn-nav { background: var(--accent); color: #000 !important; font-weight: 500; padding: 0.45rem 1.1rem; border-radius: 100px; font-size: 0.8rem !important; transition: opacity 0.2s !important; }
+  .btn-nav:hover { opacity: 0.85; }
 
-/* Slide from left */
-.reveal-left{transform:translateX(-60px)}
+  .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 7rem 5% 4rem; position: relative; overflow: hidden; }
+  .hero-glow { position: absolute; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(0,229,255,0.08) 0%, rgba(0,102,255,0.04) 40%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%, -55%); pointer-events: none; }
+  .hero-glow2 { position: absolute; width: 350px; height: 350px; border-radius: 50%; background: radial-gradient(circle, rgba(123,47,255,0.1) 0%, transparent 70%); bottom: 10%; right: 10%; pointer-events: none; }
+  .badge { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(0,229,255,0.08); border: 1px solid rgba(0,229,255,0.2); color: var(--accent); font-size: 0.72rem; font-weight: 500; padding: 0.3rem 0.85rem; border-radius: 100px; margin-bottom: 1.25rem; letter-spacing: 0.05em; text-transform: uppercase; }
+  .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.8); } }
+  h1 { font-family: 'Syne', sans-serif; font-size: clamp(2.6rem, 7vw, 5rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 1.1rem; max-width: 800px; }
+  h1 em { font-style: normal; background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .hero-sub { font-size: 1.05rem; color: var(--muted); max-width: 500px; margin-bottom: 2rem; font-weight: 300; line-height: 1.7; }
+  .hero-ctas { display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; margin-bottom: 3rem; }
+  .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #000; font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 0.9rem; padding: 0.75rem 1.75rem; border-radius: 100px; border: none; cursor: pointer; transition: transform 0.2s, opacity 0.2s; text-decoration: none; display: inline-block; }
+  .btn-primary:hover { transform: translateY(-2px); opacity: 0.9; }
+  .btn-ghost { background: transparent; color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 0.9rem; padding: 0.75rem 1.75rem; border-radius: 100px; border: 1px solid var(--border2); cursor: pointer; transition: border-color 0.2s, background 0.2s; text-decoration: none; display: inline-block; }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.04); }
+  .stats { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; }
+  .stat { text-align: center; }
+  .stat-num { font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 800; color: var(--text); letter-spacing: -0.02em; }
+  .stat-label { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.1rem; }
+  .stat-divider { width: 1px; background: var(--border); align-self: stretch; }
 
-/* Slide from right */
-.reveal-right{transform:translateX(60px)}
+  section { padding: 3.5rem 5%; position: relative; }
+  .section-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); font-weight: 500; margin-bottom: 0.5rem; }
+  .section-title { font-family: 'Syne', sans-serif; font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; letter-spacing: -0.025em; line-height: 1.15; margin-bottom: 0.6rem; max-width: 580px; }
+  .section-sub { color: var(--muted); font-size: 0.95rem; max-width: 460px; font-weight: 300; line-height: 1.7; }
 
-/* Scale in */
-.reveal-scale{transform:scale(.88)}
+  .how { background: var(--bg2); }
+  .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem; }
+  .step-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 1.4rem; transition: border-color 0.3s, transform 0.3s; }
+  .step-card:hover { border-color: rgba(0,229,255,0.2); transform: translateY(-3px); }
+  .step-num { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: rgba(0,229,255,0.12); line-height: 1; margin-bottom: 0.75rem; }
+  .step-title { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text); }
+  .step-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.6; font-weight: 300; }
 
-/* Fade only */
-.reveal-fade{transform:none}
+  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1px; border: 1px solid var(--border); border-radius: 18px; overflow: hidden; margin-top: 2rem; background: var(--border); }
+  .feat { background: var(--bg); padding: 1.6rem; transition: background 0.3s; }
+  .feat:hover { background: var(--surface); }
+  .feat-icon { width: 36px; height: 36px; border-radius: 9px; background: rgba(0,229,255,0.08); border: 1px solid rgba(0,229,255,0.15); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-size: 16px; }
+  .feat-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem; margin-bottom: 0.4rem; }
+  .feat-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.6; font-weight: 300; }
 
-/* Staggered children */
-.stagger > *{opacity:0;transform:translateY(36px);transition:opacity .7s cubic-bezier(.25,.8,.25,1),transform .7s cubic-bezier(.25,.8,.25,1)}
-.stagger.visible > *:nth-child(1){opacity:1;transform:none;transition-delay:.05s}
-.stagger.visible > *:nth-child(2){opacity:1;transform:none;transition-delay:.15s}
-.stagger.visible > *:nth-child(3){opacity:1;transform:none;transition-delay:.25s}
-.stagger.visible > *:nth-child(4){opacity:1;transform:none;transition-delay:.35s}
-.stagger.visible > *:nth-child(5){opacity:1;transform:none;transition-delay:.45s}
-.stagger.visible > *:nth-child(6){opacity:1;transform:none;transition-delay:.55s}
-.stagger.visible > *:nth-child(7){opacity:1;transform:none;transition-delay:.65s}
-.stagger.visible > *:nth-child(8){opacity:1;transform:none;transition-delay:.75s}
-.stagger.visible > *:nth-child(9){opacity:1;transform:none;transition-delay:.85s}
+  .industries { background: var(--bg2); }
+  .industries-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.75rem; }
+  .ind-pill { display: flex; align-items: center; gap: 0.45rem; background: var(--surface); border: 1px solid var(--border); border-radius: 100px; padding: 0.4rem 1rem; font-size: 0.83rem; color: var(--muted); transition: border-color 0.2s, color 0.2s; }
+  .ind-pill:hover { border-color: rgba(0,229,255,0.3); color: var(--text); }
+  .ind-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent2); }
 
-/* Gold line wipe */
-.reveal-line::after{content:'';display:block;width:0;height:3px;background:var(--gold);margin-top:12px;transition:width 1s cubic-bezier(.25,.8,.25,1) .3s}
-.reveal-line.visible::after{width:60px}
+  .pricing-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; max-width: 700px; margin: 2rem auto 0; }
+  @media (max-width: 600px) { .pricing-cards { grid-template-columns: 1fr; } }
+  .pricing-card { background: var(--surface); border: 1px solid var(--border2); border-radius: 20px; padding: 2rem; position: relative; overflow: hidden; }
+  .pricing-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3)); }
+  .pricing-card.featured { border-color: rgba(0,229,255,0.25); }
+  .price { font-family: 'Syne', sans-serif; font-size: 2.5rem; font-weight: 800; letter-spacing: -0.04em; color: var(--text); line-height: 1; margin-bottom: 0.2rem; }
+  .price sub { font-size: 0.9rem; font-weight: 400; color: var(--muted); vertical-align: baseline; margin-right: 0.1rem; }
+  .price-note { font-size: 0.75rem; color: var(--muted); margin-bottom: 1.25rem; font-weight: 300; }
+  .price-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); font-weight: 500; margin-bottom: 0.5rem; }
+  .price-features { list-style: none; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem; }
+  .price-features li { display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.83rem; color: var(--muted); font-weight: 300; }
+  .check { width: 17px; height: 17px; border-radius: 50%; background: rgba(0,229,255,0.1); border: 1px solid rgba(0,229,255,0.3); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; color: var(--accent); font-size: 9px; }
 
-/* Section divider slide */
-.reveal-divider{transform:scaleX(0);transform-origin:left;transition:transform .9s cubic-bezier(.25,.8,.25,1)!important;opacity:1!important}
-.reveal-divider.visible{transform:scaleX(1)}
+  .contact { background: var(--bg2); }
+  .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; margin-top: 2rem; }
+  @media (max-width: 768px) { .contact-wrap { grid-template-columns: 1fr; gap: 2rem; } .nav-links a:not(.btn-nav) { display: none; } h1 { font-size: 2.4rem; } }
+  .form-group { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1rem; }
+  label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 500; }
+  input, select, textarea { background: var(--surface); border: 1px solid var(--border); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 300; padding: 0.65rem 0.9rem; border-radius: 9px; outline: none; transition: border-color 0.2s; width: 100%; }
+  input:focus, select:focus, textarea:focus { border-color: rgba(0,229,255,0.35); }
+  select option { background: var(--bg3); }
+  textarea { resize: vertical; min-height: 100px; }
+  .btn-submit { width: 100%; background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #000; font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 0.9rem; padding: 0.8rem; border-radius: 100px; border: none; cursor: pointer; transition: opacity 0.2s, transform 0.15s; margin-top: 0.25rem; }
+  .btn-submit:hover { opacity: 0.85; transform: translateY(-1px); }
+  .contact-info h3 { font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 0.75rem; letter-spacing: -0.02em; }
+  .contact-info p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; font-weight: 300; margin-bottom: 1.5rem; }
+  .contact-detail { display: flex; align-items: center; gap: 0.65rem; font-size: 0.83rem; color: var(--muted); margin-bottom: 0.6rem; }
+  .contact-detail-icon { width: 30px; height: 30px; border-radius: 7px; background: rgba(0,229,255,0.06); border: 1px solid rgba(0,229,255,0.12); display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; }
 
-/* Parallax container */
-.parallax-wrap{overflow:hidden}
-.parallax-img{transition:transform .1s linear;will-change:transform}
+  footer { text-align: center; padding: 2rem 5%; border-top: 1px solid var(--border); font-size: 0.78rem; color: var(--muted2); }
 
-/* Clip text reveal */
-.reveal-clip{clip-path:inset(0 100% 0 0);transition:clip-path .9s cubic-bezier(.25,.8,.25,1)!important;opacity:1!important;transform:none!important}
-.reveal-clip.visible{clip-path:inset(0 0% 0 0)}
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: none; }
 
-/* Number counter */
-.counter{font-variant-numeric:tabular-nums}
-
-/* Floating badge animation */
-@keyframes floatBadge{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-8px) rotate(-2deg)}}
-.float-badge{animation:floatBadge 4s ease-in-out infinite}
-
-/* Slide in from bottom with bounce */
-.reveal-bounce{transform:translateY(60px)}
-.reveal-bounce.visible{transform:none;transition:opacity .6s ease,transform .9s cubic-bezier(.34,1.56,.64,1)!important}
-
-/* Horizontal scroll progress bar */
-.scroll-progress{position:fixed;top:var(--nav-h);left:0;height:3px;background:var(--gold);z-index:999;width:0;transition:width .1s linear}
-
-/* Hover lift on cards */
-.mc,.rc,.sc{transition:background .2s,transform .3s cubic-bezier(.25,.8,.25,1),box-shadow .3s ease}
-.rc:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(200,149,58,.15)}
-.sc:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.08)}
-
-/* Gallery item scale */
-.gi{transition:transform .4s cubic-bezier(.25,.8,.25,1),box-shadow .4s ease}
-.gi:hover{transform:scale(1.02);box-shadow:0 20px 56px rgba(0,0,0,.4);z-index:2}
-
-/* Gold underline wipe on nav */
-.nav-links a{transition:color .2s,border-bottom-color .3s}
-
-/* Pulse glow on CTA buttons */
-@keyframes glowPulse{0%,100%{box-shadow:0 0 0 0 rgba(200,149,58,.4)}50%{box-shadow:0 0 0 12px rgba(200,149,58,0)}}
-.btn-g.pulse{animation:glowPulse 2.5s ease infinite}
-
-/* Strip entrance */
-.strip-in{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
-.strip-in.visible{opacity:1;transform:none}
-
-/* About visual stagger */
-.a-vis .avc{opacity:0;transform:scale(.9) translateY(20px);transition:opacity .7s ease,transform .7s cubic-bezier(.25,.8,.25,1)}
-.a-vis.visible .avc:nth-child(1){opacity:1;transform:none;transition-delay:.1s}
-.a-vis.visible .avc:nth-child(2){opacity:1;transform:none;transition-delay:.25s}
-.a-vis.visible .avc:nth-child(3){opacity:1;transform:none;transition-delay:.4s}
-.a-vis.visible .avc:nth-child(4){opacity:1;transform:none;transition-delay:.55s}
-@media(max-width:960px){
-  .nav-links,.nav-social{display:none}
-  .hamburger{display:flex}
-  .a-in{grid-template-columns:1fr;gap:48px}
-  .a-vis{display:none}
-  .svc-grid{grid-template-columns:1fr 1fr}
-  .menu-grid{grid-template-columns:1fr 1fr}
-  .rev-grid{grid-template-columns:1fr}
-  .info-in{grid-template-columns:1fr}
-  .ft{grid-template-columns:1fr}
-  .gal-grid{grid-template-columns:1fr 1fr}
-  .gi:nth-child(1),.gi:nth-child(5){grid-column:span 2}
-  .s-in{padding:36px 28px}
-  nav{padding:0 20px}
-}
-@media(max-width:640px){
-  .svc-grid,.menu-grid,.gal-grid{grid-template-columns:1fr}
-  .gi:nth-child(1),.gi:nth-child(5){grid-column:span 1}
-}
+  .wave-line { display: flex; align-items: center; gap: 3px; margin-bottom: 2rem; }
+  .wave-bar { width: 3px; border-radius: 3px; background: var(--accent); opacity: 0.6; animation: wave 1.4s ease-in-out infinite; }
+  @keyframes wave { 0%, 100% { transform: scaleY(1); opacity: 0.4; } 50% { transform: scaleY(2.5); opacity: 0.9; } }
 </style>
 </head>
 <body>
 
-<div class="scroll-progress" id="scrollProg"></div>
-
-
-
-<nav id="nav">
-  <a href="#" class="nav-logo"><span class="sc">Teranga</span><span class="tg">African Restaurant · Chicago, IL</span></a>
-  <div class="nav-social"><a href="#">FB</a><a href="#">IG</a></div>
-  <ul class="nav-links">
-    <li><a href="#menu">Menu</a></li>
-    <li><a href="#svc">Services</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#contact" class="cta">Book a Table</a></li>
-  </ul>
-  <button class="hamburger" onclick="document.getElementById('mnav').classList.toggle('open')">
-    <span></span><span></span><span></span>
-  </button>
+<nav>
+  <a href="#" class="logo">Elevation<span>.</span></a>
+  <div class="nav-links">
+    <a href="#how">How it works</a>
+    <a href="#features">Features</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#contact" class="btn-nav">Book a call</a>
+  </div>
 </nav>
 
-<div class="mnav" id="mnav">
-  <a href="#menu">Menu</a><a href="#svc">Services</a><a href="#about">About</a>
-  <a href="#gallery">Gallery</a><a href="#contact">Contact</a>
-  <a href="#contact" class="cta-m">Book a Table</a>
-</div>
-
 <section class="hero">
-  <div class="h-bg"></div><div class="h-pat"></div><div class="h-glow"></div>
-  <div class="h-content">
-    <p class="h-eye">Senegalese Flavors · Chicago Soul</p>
-    <h1 class="h-title">Teranga</h1>
-    <p class="h-sub">Taste Africa. Feel at home.</p>
-    <p class="h-tag">Savor Senegalese Hospitality</p>
-    <div class="h-btns">
-      <a href="#menu" class="btn-g">View Menu</a>
-      <a href="#contact" class="btn-o">Book a Table</a>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="badge"><span class="badge-dot"></span>AI-Powered Voice Receptionist</div>
+  <h1>Your phones answered.<br><em>24 hours a day.</em></h1>
+  <p class="hero-sub">Elevation Studio builds custom AI receptionists that book appointments, answer patient questions, and never put a caller on hold — even at 2am.</p>
+  <div class="hero-ctas">
+    <a href="#contact" class="btn-primary">Book a free demo</a>
+    <a href="#how" class="btn-ghost">See how it works</a>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="stat-num">24/7</div><div class="stat-label">Always available</div></div>
+    <div class="stat-divider"></div>
+    <div class="stat"><div class="stat-num">&lt;1s</div><div class="stat-label">Answer time</div></div>
+    <div class="stat-divider"></div>
+    <div class="stat"><div class="stat-num">0</div><div class="stat-label">Missed calls</div></div>
+    <div class="stat-divider"></div>
+    <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Custom to you</div></div>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="section-label">Process</div>
+  <h2 class="section-title">Up and running in days, not months</h2>
+  <p class="section-sub">We build, train, and deploy your AI receptionist. You just answer the appointments.</p>
+  <div class="steps-grid fade-in">
+    <div class="step-card"><div class="step-num">01</div><div class="step-title">Discovery call</div><div class="step-desc">We learn your business, your services, your FAQs, and how you want calls handled.</div></div>
+    <div class="step-card"><div class="step-num">02</div><div class="step-title">Custom build</div><div class="step-desc">We train your AI receptionist with your exact voice, scripts, and booking logic.</div></div>
+    <div class="step-card"><div class="step-num">03</div><div class="step-title">Integration</div><div class="step-desc">We connect to your existing phone system and calendar. No new hardware needed.</div></div>
+    <div class="step-card"><div class="step-num">04</div><div class="step-title">Go live</div><div class="step-desc">Your AI receptionist starts answering calls. We monitor and optimize in real time.</div></div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="section-label">Features</div>
+  <h2 class="section-title">Everything a receptionist does — amplified</h2>
+  <div class="features-grid fade-in">
+    <div class="feat"><div class="feat-icon">📞</div><div class="feat-title">Instant call answering</div><div class="feat-desc">Every call answered in under a second. No hold music, no voicemail, no missed patients.</div></div>
+    <div class="feat"><div class="feat-icon">📅</div><div class="feat-title">Appointment booking</div><div class="feat-desc">Connects to your calendar and books appointments in real time during the call.</div></div>
+    <div class="feat"><div class="feat-icon">🧠</div><div class="feat-title">Trained on your business</div><div class="feat-desc">Knows your services, hours, staff, and FAQs — answers like a 5-year employee.</div></div>
+    <div class="feat"><div class="feat-icon">🌙</div><div class="feat-title">After-hours coverage</div><div class="feat-desc">Handles calls nights, weekends, and holidays so you never lose a lead to voicemail.</div></div>
+    <div class="feat"><div class="feat-icon">🌍</div><div class="feat-title">Multilingual</div><div class="feat-desc">Speaks to callers in their language — English, Spanish, French, and more.</div></div>
+    <div class="feat"><div class="feat-icon">📊</div><div class="feat-title">Call analytics</div><div class="feat-desc">Dashboard showing call volume, common questions, bookings, and recovered revenue.</div></div>
+  </div>
+</section>
+
+<section class="industries" id="industries">
+  <div class="section-label">Who it's for</div>
+  <h2 class="section-title">Built for businesses that run on phone calls</h2>
+  <p class="section-sub">If your business misses calls, loses leads, or pays staff to answer phones — this is for you.</p>
+  <div class="industries-row fade-in">
+    <div class="ind-pill"><span class="ind-dot"></span>Dental Clinics</div>
+    <div class="ind-pill"><span class="ind-dot"></span>Medical Practices</div>
+    <div class="ind-pill"><span class="ind-dot"></span>Law Firms</div>
+    <div class="ind-pill"><span class="ind-dot"></span>HVAC & Plumbing</div>
+    <div class="ind-pill"><span class="ind-dot"></span>Hair Salons & Spas</div>
+    <div class="ind-pill"><span class="ind-dot"></span>Restaurants</div>
+    <div class="ind-pill"><span class="ind-dot"></span>Real Estate</div>
+    <div class="ind-pill"><span class="ind-dot"></span>Auto Repair</div>
+    <div class="ind-pill"><span class="ind-dot"></span>Chiropractic</div>
+    <div class="ind-pill"><span class="ind-dot"></span>Veterinary</div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="section-label" style="text-align:center">Pricing</div>
+  <h2 class="section-title" style="text-align:center; margin: 0 auto 0.4rem;">Simple, transparent pricing</h2>
+  <p class="section-sub" style="text-align:center; margin: 0 auto;">One flat investment. No per-minute fees. No surprises.</p>
+  <div class="pricing-cards fade-in">
+    <div class="pricing-card">
+      <div class="price-label">One-time setup</div>
+      <div class="price"><sub>from</sub>$2,500</div>
+      <div class="price-note">Paid once · varies by complexity</div>
+      <ul class="price-features">
+        <li><span class="check">✓</span>Custom AI receptionist build</li>
+        <li><span class="check">✓</span>Voice & script configuration</li>
+        <li><span class="check">✓</span>Calendar & phone integration</li>
+        <li><span class="check">✓</span>Testing & go-live support</li>
+      </ul>
+    </div>
+    <div class="pricing-card featured">
+      <div class="price-label">Monthly retainer</div>
+      <div class="price"><sub>$</sub>200<span style="font-size:1rem; font-weight:400; color:var(--muted)">/mo</span></div>
+      <div class="price-note">Ongoing · cancel anytime</div>
+      <ul class="price-features">
+        <li><span class="check">✓</span>Unlimited call handling, 24/7</li>
+        <li><span class="check">✓</span>After-hours & weekend coverage</li>
+        <li><span class="check">✓</span>Multilingual support</li>
+        <li><span class="check">✓</span>Ongoing optimization & support</li>
+        <li><span class="check">✓</span>Call analytics dashboard</li>
+      </ul>
     </div>
   </div>
-  <div class="h-scroll">Discover</div>
-</section>
-
-<div class="res-strip">
-  <h2>Booking a table has never been easier</h2>
-  <h3>Make a Reservation</h3>
-  <p>Let us ensure you get a great table. We recommend calling ahead so we can give you the full Teranga experience.</p>
-  <a href="tel:7737540534" class="btn-g">Call (773) 754-0534</a>
-</div>
-
-<div class="cat-strip">
-  <div class="sl-c">We Come to You</div>
-  <h2>Book Your Next Event with Teranga</h2>
-  <p>From intimate family dinners to large celebrations — we bring the warmth, flavors, and spirit of Senegal to your occasion. Let us make your event truly memorable!</p>
-  <a href="#contact" class="btn-w">Book Catering</a>
-</div>
-
-<section class="sw" id="slideshow">
-  <div class="slide active"><div class="s-bg sb1"><img src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20400%20260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22400%22%20height%3D%22260%22%20fill%3D%22%230F0A04%22%2F%3E%3Crect%20x%3D%2280%22%20y%3D%22175%22%20width%3D%22240%22%20height%3D%2212%22%20rx%3D%223%22%20fill%3D%22%231A0A04%22%2F%3E%3Crect%20x%3D%22120%22%20y%3D%22168%22%20width%3D%228%22%20height%3D%2240%22%20rx%3D%222%22%20fill%3D%22%234A3020%22%2F%3E%3Crect%20x%3D%22200%22%20y%3D%22163%22%20width%3D%228%22%20height%3D%2240%22%20rx%3D%222%22%20fill%3D%22%234A3020%22%2F%3E%3Crect%20x%3D%22280%22%20y%3D%22170%22%20width%3D%228%22%20height%3D%2240%22%20rx%3D%222%22%20fill%3D%22%234A3020%22%2F%3E%3Crect%20x%3D%2260%22%20y%3D%22130%22%20width%3D%22280%22%20height%3D%2210%22%20rx%3D%223%22%20fill%3D%22%232E1A08%22%2F%3E%3Crect%20x%3D%2285%22%20y%3D%2295%22%20width%3D%2255%22%20height%3D%2248%22%20rx%3D%228%22%20fill%3D%22%238B4513%22%2F%3E%3Crect%20x%3D%2288%22%20y%3D%2298%22%20width%3D%2249%22%20height%3D%2242%22%20rx%3D%226%22%20fill%3D%22%23C8953A%22%2F%3E%3Crect%20x%3D%22165%22%20y%3D%2290%22%20width%3D%2265%22%20height%3D%2252%22%20rx%3D%228%22%20fill%3D%22%238B4513%22%2F%3E%3Crect%20x%3D%22168%22%20y%3D%2293%22%20width%3D%2259%22%20height%3D%2246%22%20rx%3D%226%22%20fill%3D%22%23C8953A%22%2F%3E%3Crect%20x%3D%22248%22%20y%3D%2297%22%20width%3D%2255%22%20height%3D%2246%22%20rx%3D%228%22%20fill%3D%22%238B4513%22%2F%3E%3Crect%20x%3D%22251%22%20y%3D%22100%22%20width%3D%2249%22%20height%3D%2240%22%20rx%3D%226%22%20fill%3D%22%23C8953A%22%2F%3E%3Cpath%20d%3D%22M85%2085%20q5-15%2010-5%20q5-15%2010-5%20q5-15%208-5%22%20stroke%3D%22%23E8B560%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20d%3D%22M170%2080%20q5-15%2010-5%20q5-15%2010-5%20q5-15%208-5%22%20stroke%3D%22%23E8B560%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20opacity%3D%22.5%22%2F%3E%3Ctext%20x%3D%22200%22%20y%3D%22226%22%20text-anchor%3D%22middle%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2222%22%20font-style%3D%22italic%22%20fill%3D%22%23E8B560%22%20opacity%3D%22.9%22%3EDibi%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Dibi" style="width:100%;height:100%;object-fit:cover;display:block"></div><div class="s-dim"></div><div class="s-in"><div class="s-txt"><h2>Halal Meat &amp; Fresh Juice Made In-House</h2><p>Every ingredient handpicked for the most authentic Senegalese flavors, prepared daily from scratch.</p><a href="#menu">View Our Menu →</a></div></div></div>
-  <div class="slide"><div class="s-bg sb2"></div><div class="s-dim"></div><div class="s-in"><div class="s-txt"><h2>Trained in Senegal, Seasoned on Chicago's North Side</h2><p>Our chefs bring you dishes rooted in tradition — rich in West African spices and prepared with love.</p><a href="#about">Our Story →</a></div></div></div>
-  <div class="slide"><div class="s-bg sb3"></div><div class="s-dim"></div><div class="s-in"><div class="s-txt"><h2>From the Smoky Grill of Dibi to the Comfort of Yassa</h2><p>Every bite carries a story of home, culture, and connection. Welcome, eat well, and leave as family.</p><a href="#contact">Attend a Special Event →</a></div></div></div>
-  <div class="s-dots">
-    <button class="dot active" onclick="gotoSlide(0)"></button>
-    <button class="dot" onclick="gotoSlide(1)"></button>
-    <button class="dot" onclick="gotoSlide(2)"></button>
+  <div style="text-align:center; margin-top: 1.5rem;">
+    <a href="#contact" class="btn-primary">Book a free demo call</a>
   </div>
-  <button class="snav sp" onclick="prevSlide()">&#8249;</button>
-  <button class="snav sn" onclick="nextSlide()">&#8250;</button>
 </section>
 
-<section class="about" id="about">
-  <div class="a-in">
-    <div class="reveal reveal-left">
-      <div class="sl reveal-line">Our Story</div>
-      <h2 class="sh reveal-clip">Welcome to the <em>Warmth of Senegal</em></h2>
-      <p class="sb">At Teranga African Restaurant, we share the warmth, flavor, and spirit of Senegal — one plate at a time. Trained in Senegal and seasoned on Chicago's South Side, our chefs bring you dishes rooted in tradition, rich in West African spices, and prepared with love.</p>
-      <div class="a-prov">"Ku nekk ci ñuul, am na ci weex"<span>In Wolof: "In every darkness, there is light" — and we believe good food is that light.</span></div>
-      <p class="sb">In Wolof, <strong style="color:var(--gold-light)">teranga</strong> means more than hospitality — it's the art of making every guest feel like family. From the smoky grill of dibi to the tangy comfort of yassa, every bite carries a story of home, culture, and connection.</p>
-      <p class="sb" style="margin-top:16px">We prepare and serve timeless, high-quality West African dishes in a family-friendly atmosphere. Welcome, eat well, and leave as family.</p>
-      <div class="a-stats">
-        <div class="stat"><span class="stat-n">100%</span><span class="stat-l">Halal Certified</span></div>
-        <div class="stat"><span class="stat-n">Daily</span><span class="stat-l">Fresh Ingredients</span></div>
-        <div class="stat"><span class="stat-n">★ 4.8</span><span class="stat-l">Guest Rating</span></div>
-        <div class="stat"><span class="stat-n">Dine-In</span><span class="stat-l">Takeout &amp; Catering</span></div>
+<section class="contact" id="contact">
+  <div class="section-label">Get started</div>
+  <h2 class="section-title">Let's build your AI receptionist</h2>
+  <div class="contact-wrap">
+    <div class="contact-info fade-in">
+      <div class="wave-line">
+        <div class="wave-bar" style="height:12px; animation-delay:0s"></div>
+        <div class="wave-bar" style="height:20px; animation-delay:0.1s"></div>
+        <div class="wave-bar" style="height:28px; animation-delay:0.2s"></div>
+        <div class="wave-bar" style="height:16px; animation-delay:0.3s"></div>
+        <div class="wave-bar" style="height:24px; animation-delay:0.4s"></div>
+        <div class="wave-bar" style="height:10px; animation-delay:0.5s"></div>
+        <div class="wave-bar" style="height:22px; animation-delay:0.6s"></div>
+        <div class="wave-bar" style="height:18px; animation-delay:0.7s"></div>
+        <div class="wave-bar" style="height:30px; animation-delay:0.8s"></div>
+        <div class="wave-bar" style="height:14px; animation-delay:0.9s"></div>
       </div>
+      <h3>Book a free 30-minute demo</h3>
+      <p>Tell us about your business and we'll show you exactly how your AI receptionist would handle your calls — live, on the spot.</p>
+      <div class="contact-detail"><span class="contact-detail-icon">📍</span><span>Madison, WI — serving clients nationwide</span></div>
+      <div class="contact-detail"><span class="contact-detail-icon">⚡</span><span>Response within 24 hours</span></div>
+      <div class="contact-detail"><span class="contact-detail-icon">🎯</span><span>No commitment required</span></div>
     </div>
-    <div class="a-vis reveal reveal-right">
-      <div class="avc av1"><img src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20400%20260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22400%22%20height%3D%22260%22%20fill%3D%22%232E1A0E%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22160%22%20rx%3D%22160%22%20ry%3D%2250%22%20fill%3D%22%238B4513%22%20opacity%3D%22.4%22%2F%3E%3Cellipse%20cx%3D%22130%22%20cy%3D%22140%22%20rx%3D%2265%22%20ry%3D%2242%22%20fill%3D%22%23C8953A%22%20transform%3D%22rotate%28-15%20130%20140%29%22%2F%3E%3Cellipse%20cx%3D%22130%22%20cy%3D%22140%22%20rx%3D%2255%22%20ry%3D%2235%22%20fill%3D%22%23E8B560%22%20transform%3D%22rotate%28-15%20130%20140%29%22%2F%3E%3Cellipse%20cx%3D%22270%22%20cy%3D%22145%22%20rx%3D%2265%22%20ry%3D%2242%22%20fill%3D%22%23C8953A%22%20transform%3D%22rotate%2810%20270%20145%29%22%2F%3E%3Cellipse%20cx%3D%22270%22%20cy%3D%22145%22%20rx%3D%2255%22%20ry%3D%2235%22%20fill%3D%22%23E8B560%22%20transform%3D%22rotate%2810%20270%20145%29%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22120%22%20rx%3D%2270%22%20ry%3D%2245%22%20fill%3D%22%23C8953A%22%20transform%3D%22rotate%28-5%20200%20120%29%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22120%22%20rx%3D%2260%22%20ry%3D%2238%22%20fill%3D%22%23E8B560%22%20transform%3D%22rotate%28-5%20200%20120%29%22%2F%3E%3Cpath%20d%3D%22M150%20118%20q50-8%20100%204%22%20stroke%3D%22%238B4513%22%20stroke-width%3D%222%22%20fill%3D%22none%22%2F%3E%3Ccircle%20cx%3D%22185%22%20cy%3D%22112%22%20r%3D%224%22%20fill%3D%22%238B4513%22%2F%3E%3Ccircle%20cx%3D%22210%22%20cy%3D%22110%22%20r%3D%223%22%20fill%3D%22%238B4513%22%2F%3E%3Ccircle%20cx%3D%22230%22%20cy%3D%22114%22%20r%3D%224%22%20fill%3D%22%238B4513%22%2F%3E%3Ctext%20x%3D%22200%22%20y%3D%22220%22%20text-anchor%3D%22middle%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2222%22%20font-style%3D%22italic%22%20fill%3D%22%23E8B560%22%20opacity%3D%22.9%22%3EFataya%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Fataya" style="width:100%;height:100%;object-fit:cover;display:block"></div>
-      <div class="avc av2"><img src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20400%20260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22400%22%20height%3D%22260%22%20fill%3D%22%231A1208%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22155%22%20rx%3D%22150%22%20ry%3D%2265%22%20fill%3D%22%232E1A08%22%20opacity%3D%22.8%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22148%22%20rx%3D%22135%22%20ry%3D%2258%22%20fill%3D%22%233A2010%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22145%22%20rx%3D%22120%22%20ry%3D%2252%22%20fill%3D%22%23C8953A%22%20opacity%3D%22.3%22%2F%3E%3Cpath%20d%3D%22M90%20140%20q30-20%2060-5%20q30%2012%2060-8%20q30-18%2060%205%20q20%2010%2040%200%22%20stroke%3D%22%23E8B560%22%20stroke-width%3D%223%22%20fill%3D%22none%22%20opacity%3D%22.7%22%2F%3E%3Cpath%20d%3D%22M95%20155%20q30-15%2055%200%20q30%2012%2060-5%20q30-15%2055%205%20q25%208%2040-2%22%20stroke%3D%22%23C8953A%22%20stroke-width%3D%222.5%22%20fill%3D%22none%22%20opacity%3D%22.8%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22130%22%20rx%3D%2260%22%20ry%3D%2228%22%20fill%3D%22%238B5A10%22%20opacity%3D%22.6%22%2F%3E%3Ccircle%20cx%3D%22180%22%20cy%3D%22122%22%20r%3D%2218%22%20fill%3D%22%23C8953A%22%20opacity%3D%22.8%22%2F%3E%3Ccircle%20cx%3D%22220%22%20cy%3D%22118%22%20r%3D%2222%22%20fill%3D%22%238B4513%22%20opacity%3D%22.9%22%2F%3E%3Ccircle%20cx%3D%22200%22%20cy%3D%22125%22%20r%3D%2220%22%20fill%3D%22%23C8953A%22%2F%3E%3Ccircle%20cx%3D%22200%22%20cy%3D%22125%22%20r%3D%2212%22%20fill%3D%22%23E8B560%22%20opacity%3D%22.8%22%2F%3E%3Ctext%20x%3D%22200%22%20y%3D%22222%22%20text-anchor%3D%22middle%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2222%22%20font-style%3D%22italic%22%20fill%3D%22%23E8B560%22%20opacity%3D%22.9%22%3EYassa%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Yassa" style="width:100%;height:100%;object-fit:cover;display:block"></div>
-      <div class="avc av3"><img src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20400%20260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22400%22%20height%3D%22260%22%20fill%3D%22%230F0A04%22%2F%3E%3Crect%20x%3D%2280%22%20y%3D%22175%22%20width%3D%22240%22%20height%3D%2212%22%20rx%3D%223%22%20fill%3D%22%231A0A04%22%2F%3E%3Crect%20x%3D%22120%22%20y%3D%22168%22%20width%3D%228%22%20height%3D%2240%22%20rx%3D%222%22%20fill%3D%22%234A3020%22%2F%3E%3Crect%20x%3D%22200%22%20y%3D%22163%22%20width%3D%228%22%20height%3D%2240%22%20rx%3D%222%22%20fill%3D%22%234A3020%22%2F%3E%3Crect%20x%3D%22280%22%20y%3D%22170%22%20width%3D%228%22%20height%3D%2240%22%20rx%3D%222%22%20fill%3D%22%234A3020%22%2F%3E%3Crect%20x%3D%2260%22%20y%3D%22130%22%20width%3D%22280%22%20height%3D%2210%22%20rx%3D%223%22%20fill%3D%22%232E1A08%22%2F%3E%3Crect%20x%3D%2285%22%20y%3D%2295%22%20width%3D%2255%22%20height%3D%2248%22%20rx%3D%228%22%20fill%3D%22%238B4513%22%2F%3E%3Crect%20x%3D%2288%22%20y%3D%2298%22%20width%3D%2249%22%20height%3D%2242%22%20rx%3D%226%22%20fill%3D%22%23C8953A%22%2F%3E%3Crect%20x%3D%22165%22%20y%3D%2290%22%20width%3D%2265%22%20height%3D%2252%22%20rx%3D%228%22%20fill%3D%22%238B4513%22%2F%3E%3Crect%20x%3D%22168%22%20y%3D%2293%22%20width%3D%2259%22%20height%3D%2246%22%20rx%3D%226%22%20fill%3D%22%23C8953A%22%2F%3E%3Crect%20x%3D%22248%22%20y%3D%2297%22%20width%3D%2255%22%20height%3D%2246%22%20rx%3D%228%22%20fill%3D%22%238B4513%22%2F%3E%3Crect%20x%3D%22251%22%20y%3D%22100%22%20width%3D%2249%22%20height%3D%2240%22%20rx%3D%226%22%20fill%3D%22%23C8953A%22%2F%3E%3Cpath%20d%3D%22M85%2085%20q5-15%2010-5%20q5-15%2010-5%20q5-15%208-5%22%20stroke%3D%22%23E8B560%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20d%3D%22M170%2080%20q5-15%2010-5%20q5-15%2010-5%20q5-15%208-5%22%20stroke%3D%22%23E8B560%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20opacity%3D%22.5%22%2F%3E%3Ctext%20x%3D%22200%22%20y%3D%22226%22%20text-anchor%3D%22middle%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2222%22%20font-style%3D%22italic%22%20fill%3D%22%23E8B560%22%20opacity%3D%22.9%22%3EDibi%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Dibi" style="width:100%;height:100%;object-fit:cover;display:block"></div>
-      <div class="avc av4"><img src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20400%20260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22400%22%20height%3D%22260%22%20fill%3D%22%231A0810%22%2F%3E%3Crect%20x%3D%22155%22%20y%3D%2260%22%20width%3D%2290%22%20height%3D%22155%22%20rx%3D%2210%22%20fill%3D%22%232A0A18%22%20opacity%3D%22.9%22%2F%3E%3Crect%20x%3D%22158%22%20y%3D%2263%22%20width%3D%2284%22%20height%3D%22149%22%20rx%3D%228%22%20fill%3D%22%238B1A30%22%20opacity%3D%22.7%22%2F%3E%3Crect%20x%3D%22160%22%20y%3D%2265%22%20width%3D%2280%22%20height%3D%22145%22%20rx%3D%227%22%20fill%3D%22%23C82A4A%22%20opacity%3D%22.6%22%2F%3E%3Crect%20x%3D%22162%22%20y%3D%2267%22%20width%3D%2276%22%20height%3D%22141%22%20rx%3D%226%22%20fill%3D%22%23E83A5A%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20d%3D%22M160%2067%20q40-15%2080%200%22%20stroke%3D%22%23FF6A7A%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20opacity%3D%22.4%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%2278%22%20rx%3D%2238%22%20ry%3D%2212%22%20fill%3D%22%23FF8A9A%22%20opacity%3D%22.25%22%2F%3E%3Cpath%20d%3D%22M155%20120%20q45%208%2090%200%22%20stroke%3D%22%23FF6A7A%22%20stroke-width%3D%221.5%22%20fill%3D%22none%22%20opacity%3D%22.3%22%2F%3E%3Crect%20x%3D%22148%22%20y%3D%22210%22%20width%3D%22104%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%232A0A18%22%2F%3E%3Ccircle%20cx%3D%22140%22%20cy%3D%22130%22%20r%3D%2212%22%20fill%3D%22%23C82A4A%22%20opacity%3D%22.5%22%2F%3E%3Ccircle%20cx%3D%22260%22%20cy%3D%22110%22%20r%3D%2210%22%20fill%3D%22%23C82A4A%22%20opacity%3D%22.4%22%2F%3E%3Cpath%20d%3D%22M120%2080%20q10-20%2020-5%20q8-18%2015-3%22%20stroke%3D%22%23C82A4A%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20d%3D%22M265%2075%20q8-18%2016-3%20q7-16%2013-2%22%20stroke%3D%22%23C82A4A%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20opacity%3D%22.5%22%2F%3E%3Ctext%20x%3D%22200%22%20y%3D%22245%22%20text-anchor%3D%22middle%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2222%22%20font-style%3D%22italic%22%20fill%3D%22%23E8B560%22%20opacity%3D%22.9%22%3EBissap%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Bissap" style="width:100%;height:100%;object-fit:cover;display:block"></div>
-    </div>
+    <form onsubmit="handleSubmit(event)">
+      <div class="form-group"><label>Business name</label><input type="text" placeholder="Madison Family Dental" required></div>
+      <div class="form-group"><label>Your name</label><input type="text" placeholder="Dr. Sarah Johnson" required></div>
+      <div class="form-group"><label>Email</label><input type="email" placeholder="hello@yourbusiness.com" required></div>
+      <div class="form-group"><label>Phone</label><input type="tel" placeholder="(608) 555-0100"></div>
+      <div class="form-group">
+        <label>Industry</label>
+        <select>
+          <option value="">Select your industry...</option>
+          <option>Dental Clinic</option>
+          <option>Medical Practice</option>
+          <option>Law Firm</option>
+          <option>HVAC / Plumbing</option>
+          <option>Salon / Spa</option>
+          <option>Restaurant</option>
+          <option>Real Estate</option>
+          <option>Auto Repair</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group"><label>How many calls do you miss per week?</label><textarea placeholder="We miss roughly 10-15 after-hours calls..."></textarea></div>
+      <button type="submit" class="btn-submit">Book my free demo →</button>
+    </form>
   </div>
 </section>
 
-<section class="svc-sec" id="svc">
-  <div class="svc-inner">
-    <div class="svc-hdr reveal reveal-fade">
-      <div><div class="sl reveal-line">What We Offer</div><h2 class="sh reveal-clip">Our <em>Services</em></h2></div>
-      <a href="#contact" class="btn-g pulse">Get in Touch</a>
-    </div>
-    <div class="svc-grid stagger">
-      <div class="sc"><div class="sc-num">01</div><div class="sc-ico">🍽️</div><h3>Dine at Our North Side Restaurant</h3><p>Experience authentic Senegalese cuisine in our warm, family-friendly dining room in Chicago's Edgewater neighborhood at 1131 W. Bryn Mawr.</p></div>
-      <div class="sc"><div class="sc-num">02</div><div class="sc-ico">🥡</div><h3>Order Takeout</h3><p>Bring the flavors of Teranga home. Order online or call us at (773) 754-0534 and enjoy our dishes wherever you are.</p></div>
-      <div class="sc"><div class="sc-num">03</div><div class="sc-ico">🎉</div><h3>Book Catering</h3><p>We cater weddings, birthdays, corporate events, and more — delivering the full Teranga experience to your special occasion.</p></div>
-      <div class="sc"><div class="sc-num">04</div><div class="sc-ico">🎊</div><h3>Attend a Special Event</h3><p>Join us for cultural celebrations, tasting evenings, and community gatherings at Teranga throughout the year.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="menu-sec" id="menu">
-  <div class="menu-in">
-    <div class="menu-hdr reveal reveal-fade">
-      <div class="sl reveal-line">Taste Senegal</div>
-      <h2 class="sh reveal-clip">Our <em>Menu</em></h2>
-      <p style="color:var(--text-light);max-width:520px;margin:0 auto;line-height:1.7">Timeless, high-quality West African dishes in a family-friendly atmosphere. Every recipe rooted in Senegalese tradition and prepared daily from scratch.</p>
-    </div>
-    <div class="menu-grid stagger">
-      <div class="mc"><div class="mc-img"><img src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20400%20260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22400%22%20height%3D%22260%22%20fill%3D%22%232E1A0E%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22160%22%20rx%3D%22160%22%20ry%3D%2250%22%20fill%3D%22%238B4513%22%20opacity%3D%22.4%22%2F%3E%3Cellipse%20cx%3D%22130%22%20cy%3D%22140%22%20rx%3D%2265%22%20ry%3D%2242%22%20fill%3D%22%23C8953A%22%20transform%3D%22rotate%28-15%20130%20140%29%22%2F%3E%3Cellipse%20cx%3D%22130%22%20cy%3D%22140%22%20rx%3D%2255%22%20ry%3D%2235%22%20fill%3D%22%23E8B560%22%20transform%3D%22rotate%28-15%20130%20140%29%22%2F%3E%3Cellipse%20cx%3D%22270%22%20cy%3D%22145%22%20rx%3D%2265%22%20ry%3D%2242%22%20fill%3D%22%23C8953A%22%20transform%3D%22rotate%2810%20270%20145%29%22%2F%3E%3Cellipse%20cx%3D%22270%22%20cy%3D%22145%22%20rx%3D%2255%22%20ry%3D%2235%22%20fill%3D%22%23E8B560%22%20transform%3D%22rotate%2810%20270%20145%29%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22120%22%20rx%3D%2270%22%20ry%3D%2245%22%20fill%3D%22%23C8953A%22%20transform%3D%22rotate%28-5%20200%20120%29%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22120%22%20rx%3D%2260%22%20ry%3D%2238%22%20fill%3D%22%23E8B560%22%20transform%3D%22rotate%28-5%20200%20120%29%22%2F%3E%3Cpath%20d%3D%22M150%20118%20q50-8%20100%204%22%20stroke%3D%22%238B4513%22%20stroke-width%3D%222%22%20fill%3D%22none%22%2F%3E%3Ccircle%20cx%3D%22185%22%20cy%3D%22112%22%20r%3D%224%22%20fill%3D%22%238B4513%22%2F%3E%3Ccircle%20cx%3D%22210%22%20cy%3D%22110%22%20r%3D%223%22%20fill%3D%22%238B4513%22%2F%3E%3Ccircle%20cx%3D%22230%22%20cy%3D%22114%22%20r%3D%224%22%20fill%3D%22%238B4513%22%2F%3E%3Ctext%20x%3D%22200%22%20y%3D%22220%22%20text-anchor%3D%22middle%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2222%22%20font-style%3D%22italic%22%20fill%3D%22%23E8B560%22%20opacity%3D%22.9%22%3EFataya%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Fataya" style="width:100%;height:100%;object-fit:cover;display:block"></div><div class="mc-body"><h3>Fataya</h3><p>Golden, flaky pies filled with spiced salmon and onions, served hot with our signature spicy tomato sauce.</p><div class="mc-price">$9.50</div><span class="mc-tag">Appetizer</span></div></div>
-      <div class="mc"><div class="mc-img"><img src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20400%20260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22400%22%20height%3D%22260%22%20fill%3D%22%231A3020%22%2F%3E%3Crect%20x%3D%2260%22%20y%3D%22160%22%20width%3D%22280%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%230A1A10%22%20opacity%3D%22.6%22%2F%3E%3Ccircle%20cx%3D%22120%22%20cy%3D%22148%22%20r%3D%2238%22%20fill%3D%22%238B6010%22%2F%3E%3Ccircle%20cx%3D%22120%22%20cy%3D%22148%22%20r%3D%2230%22%20fill%3D%22%23C8953A%22%2F%3E%3Ccircle%20cx%3D%22120%22%20cy%3D%22148%22%20r%3D%2222%22%20fill%3D%22%23E8B560%22%2F%3E%3Ccircle%20cx%3D%22200%22%20cy%3D%22143%22%20r%3D%2242%22%20fill%3D%22%238B6010%22%2F%3E%3Ccircle%20cx%3D%22200%22%20cy%3D%22143%22%20r%3D%2234%22%20fill%3D%22%23C8953A%22%2F%3E%3Ccircle%20cx%3D%22200%22%20cy%3D%22143%22%20r%3D%2226%22%20fill%3D%22%23E8B560%22%2F%3E%3Ccircle%20cx%3D%22280%22%20cy%3D%22150%22%20r%3D%2236%22%20fill%3D%22%238B6010%22%2F%3E%3Ccircle%20cx%3D%22280%22%20cy%3D%22150%22%20r%3D%2228%22%20fill%3D%22%23C8953A%22%2F%3E%3Ccircle%20cx%3D%22280%22%20cy%3D%22150%22%20r%3D%2220%22%20fill%3D%22%23E8B560%22%2F%3E%3Ccircle%20cx%3D%22160%22%20cy%3D%22120%22%20r%3D%2230%22%20fill%3D%22%238B6010%22%2F%3E%3Ccircle%20cx%3D%22160%22%20cy%3D%22120%22%20r%3D%2222%22%20fill%3D%22%23C8953A%22%2F%3E%3Ccircle%20cx%3D%22160%22%20cy%3D%22120%22%20r%3D%2216%22%20fill%3D%22%23E8B560%22%2F%3E%3Ccircle%20cx%3D%22240%22%20cy%3D%22118%22%20r%3D%2228%22%20fill%3D%22%238B6010%22%2F%3E%3Ccircle%20cx%3D%22240%22%20cy%3D%22118%22%20r%3D%2220%22%20fill%3D%22%23C8953A%22%2F%3E%3Ccircle%20cx%3D%22240%22%20cy%3D%22118%22%20r%3D%2214%22%20fill%3D%22%23E8B560%22%2F%3E%3Ctext%20x%3D%22200%22%20y%3D%22220%22%20text-anchor%3D%22middle%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2222%22%20font-style%3D%22italic%22%20fill%3D%22%23E8B560%22%20opacity%3D%22.9%22%3EAccara%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Accara" style="width:100%;height:100%;object-fit:cover;display:block"></div><div class="mc-body"><h3>Accara</h3><p>Crispy black-eyed pea fritters with a fluffy center, served with a zesty tomato-pepper sauce.</p><div class="mc-price">$9.50</div><span class="mc-tag">Vegan</span></div></div>
-      <div class="mc"><div class="mc-img"><img src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20400%20260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22400%22%20height%3D%22260%22%20fill%3D%22%231A1208%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22155%22%20rx%3D%22150%22%20ry%3D%2265%22%20fill%3D%22%232E1A08%22%20opacity%3D%22.8%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22148%22%20rx%3D%22135%22%20ry%3D%2258%22%20fill%3D%22%233A2010%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22145%22%20rx%3D%22120%22%20ry%3D%2252%22%20fill%3D%22%23C8953A%22%20opacity%3D%22.3%22%2F%3E%3Cpath%20d%3D%22M90%20140%20q30-20%2060-5%20q30%2012%2060-8%20q30-18%2060%205%20q20%2010%2040%200%22%20stroke%3D%22%23E8B560%22%20stroke-width%3D%223%22%20fill%3D%22none%22%20opacity%3D%22.7%22%2F%3E%3Cpath%20d%3D%22M95%20155%20q30-15%2055%200%20q30%2012%2060-5%20q30-15%2055%205%20q25%208%2040-2%22%20stroke%3D%22%23C8953A%22%20stroke-width%3D%222.5%22%20fill%3D%22none%22%20opacity%3D%22.8%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22130%22%20rx%3D%2260%22%20ry%3D%2228%22%20fill%3D%22%238B5A10%22%20opacity%3D%22.6%22%2F%3E%3Ccircle%20cx%3D%22180%22%20cy%3D%22122%22%20r%3D%2218%22%20fill%3D%22%23C8953A%22%20opacity%3D%22.8%22%2F%3E%3Ccircle%20cx%3D%22220%22%20cy%3D%22118%22%20r%3D%2222%22%20fill%3D%22%238B4513%22%20opacity%3D%22.9%22%2F%3E%3Ccircle%20cx%3D%22200%22%20cy%3D%22125%22%20r%3D%2220%22%20fill%3D%22%23C8953A%22%2F%3E%3Ccircle%20cx%3D%22200%22%20cy%3D%22125%22%20r%3D%2212%22%20fill%3D%22%23E8B560%22%20opacity%3D%22.8%22%2F%3E%3Ctext%20x%3D%22200%22%20y%3D%22222%22%20text-anchor%3D%22middle%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2222%22%20font-style%3D%22italic%22%20fill%3D%22%23E8B560%22%20opacity%3D%22.9%22%3EYassa%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Yassa" style="width:100%;height:100%;object-fit:cover;display:block"></div><div class="mc-body"><h3>Yassa</h3><p>Tangy, slow-simmered onions in lemon-mustard sauce. Choose chicken, lamb, tilapia, or red snapper.</p><div class="mc-price">From $20</div><span class="mc-tag">Signature</span></div></div>
-      <div class="mc"><div class="mc-img"><img src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20400%20260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22400%22%20height%3D%22260%22%20fill%3D%22%230F0A04%22%2F%3E%3Crect%20x%3D%2280%22%20y%3D%22175%22%20width%3D%22240%22%20height%3D%2212%22%20rx%3D%223%22%20fill%3D%22%231A0A04%22%2F%3E%3Crect%20x%3D%22120%22%20y%3D%22168%22%20width%3D%228%22%20height%3D%2240%22%20rx%3D%222%22%20fill%3D%22%234A3020%22%2F%3E%3Crect%20x%3D%22200%22%20y%3D%22163%22%20width%3D%228%22%20height%3D%2240%22%20rx%3D%222%22%20fill%3D%22%234A3020%22%2F%3E%3Crect%20x%3D%22280%22%20y%3D%22170%22%20width%3D%228%22%20height%3D%2240%22%20rx%3D%222%22%20fill%3D%22%234A3020%22%2F%3E%3Crect%20x%3D%2260%22%20y%3D%22130%22%20width%3D%22280%22%20height%3D%2210%22%20rx%3D%223%22%20fill%3D%22%232E1A08%22%2F%3E%3Crect%20x%3D%2285%22%20y%3D%2295%22%20width%3D%2255%22%20height%3D%2248%22%20rx%3D%228%22%20fill%3D%22%238B4513%22%2F%3E%3Crect%20x%3D%2288%22%20y%3D%2298%22%20width%3D%2249%22%20height%3D%2242%22%20rx%3D%226%22%20fill%3D%22%23C8953A%22%2F%3E%3Crect%20x%3D%22165%22%20y%3D%2290%22%20width%3D%2265%22%20height%3D%2252%22%20rx%3D%228%22%20fill%3D%22%238B4513%22%2F%3E%3Crect%20x%3D%22168%22%20y%3D%2293%22%20width%3D%2259%22%20height%3D%2246%22%20rx%3D%226%22%20fill%3D%22%23C8953A%22%2F%3E%3Crect%20x%3D%22248%22%20y%3D%2297%22%20width%3D%2255%22%20height%3D%2246%22%20rx%3D%228%22%20fill%3D%22%238B4513%22%2F%3E%3Crect%20x%3D%22251%22%20y%3D%22100%22%20width%3D%2249%22%20height%3D%2240%22%20rx%3D%226%22%20fill%3D%22%23C8953A%22%2F%3E%3Cpath%20d%3D%22M85%2085%20q5-15%2010-5%20q5-15%2010-5%20q5-15%208-5%22%20stroke%3D%22%23E8B560%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20d%3D%22M170%2080%20q5-15%2010-5%20q5-15%2010-5%20q5-15%208-5%22%20stroke%3D%22%23E8B560%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20opacity%3D%22.5%22%2F%3E%3Ctext%20x%3D%22200%22%20y%3D%22226%22%20text-anchor%3D%22middle%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2222%22%20font-style%3D%22italic%22%20fill%3D%22%23E8B560%22%20opacity%3D%22.9%22%3EDibi%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Dibi" style="width:100%;height:100%;object-fit:cover;display:block"></div><div class="mc-body"><h3>Dibi</h3><p>Grilled, spice-rubbed chicken or lamb served with fresh onions and mustard. Chicago's favorite Senegalese street food.</p><div class="mc-price">$21.50</div><span class="mc-tag">#1 Most Liked</span></div></div>
-      <div class="mc"><div class="mc-img"><img src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20400%20260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22400%22%20height%3D%22260%22%20fill%3D%22%231A0E04%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22165%22%20rx%3D%22145%22%20ry%3D%2255%22%20fill%3D%22%232E1A08%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22155%22%20rx%3D%22130%22%20ry%3D%2250%22%20fill%3D%22%233A1A08%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22148%22%20rx%3D%22115%22%20ry%3D%2244%22%20fill%3D%22%238B4513%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22143%22%20rx%3D%22100%22%20ry%3D%2238%22%20fill%3D%22%23C8953A%22%2F%3E%3Cpath%20d%3D%22M100%20143%20q25-8%2050%203%20q25%208%2050-3%20q25-8%2050%203%22%20stroke%3D%22%23E8B560%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20opacity%3D%22.6%22%2F%3E%3Ccircle%20cx%3D%22165%22%20cy%3D%22128%22%20r%3D%2216%22%20fill%3D%22%238B1A0A%22%2F%3E%3Ccircle%20cx%3D%22200%22%20cy%3D%22120%22%20r%3D%2218%22%20fill%3D%22%236B3010%22%2F%3E%3Ccircle%20cx%3D%22235%22%20cy%3D%22128%22%20r%3D%2215%22%20fill%3D%22%238B1A0A%22%2F%3E%3Ccircle%20cx%3D%22180%22%20cy%3D%22138%22%20r%3D%2212%22%20fill%3D%22%233A1A04%22%2F%3E%3Ccircle%20cx%3D%22220%22%20cy%3D%22135%22%20r%3D%2213%22%20fill%3D%22%233A1A04%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22105%22%20rx%3D%2240%22%20ry%3D%228%22%20fill%3D%22%23E8B560%22%20opacity%3D%22.4%22%2F%3E%3Ctext%20x%3D%22200%22%20y%3D%22225%22%20text-anchor%3D%22middle%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2222%22%20font-style%3D%22italic%22%20fill%3D%22%23E8B560%22%20opacity%3D%22.9%22%3EMaf%C3%A9%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Mafe" style="width:100%;height:100%;object-fit:cover;display:block"></div><div class="mc-body"><h3>Mafé</h3><p>Rich, buttery peanut sauce simmered with your choice of chicken, lamb, or veggies. A West African comfort classic.</p><div class="mc-price">$26.50</div><span class="mc-tag">Entrée</span></div></div>
-      <div class="mc"><div class="mc-img"><img src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20400%20260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22400%22%20height%3D%22260%22%20fill%3D%22%231A1A08%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22168%22%20rx%3D%22145%22%20ry%3D%2252%22%20fill%3D%22%232A2010%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22158%22%20rx%3D%22130%22%20ry%3D%2246%22%20fill%3D%22%233A2A08%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22150%22%20rx%3D%22115%22%20ry%3D%2240%22%20fill%3D%22%238B6A10%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22143%22%20rx%3D%22100%22%20ry%3D%2234%22%20fill%3D%22%23C8953A%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22138%22%20rx%3D%2285%22%20ry%3D%2228%22%20fill%3D%22%23E8A820%22%2F%3E%3Cpath%20d%3D%22M115%20138%20q25-10%2050%200%20q25%208%2050%200%20q25-8%2050%205%22%20stroke%3D%22%23fff%22%20stroke-width%3D%221.5%22%20fill%3D%22none%22%20opacity%3D%22.25%22%2F%3E%3Ccircle%20cx%3D%22160%22%20cy%3D%22125%22%20r%3D%2214%22%20fill%3D%22%238B3A10%22%2F%3E%3Ccircle%20cx%3D%22200%22%20cy%3D%22118%22%20r%3D%2216%22%20fill%3D%22%236B3A10%22%2F%3E%3Ccircle%20cx%3D%22240%22%20cy%3D%22125%22%20r%3D%2214%22%20fill%3D%22%238B3A10%22%2F%3E%3Cpath%20d%3D%22M155%20108%20q8-5%2010%205%20q8-5%2010%205%20q6-5%208%203%22%20stroke%3D%22%23C8953A%22%20stroke-width%3D%221.5%22%20fill%3D%22none%22%20opacity%3D%22.6%22%2F%3E%3Ctext%20x%3D%22200%22%20y%3D%22226%22%20text-anchor%3D%22middle%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2222%22%20font-style%3D%22italic%22%20fill%3D%22%23E8B560%22%20opacity%3D%22.9%22%3ECurry%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Curry" style="width:100%;height:100%;object-fit:cover;display:block"></div><div class="mc-body"><h3>Curry</h3><p>Aromatic curry stew in coconut sauce with your choice of lamb, chicken, shrimp, or a lamb-and-chicken combo.</p><div class="mc-price">$26.50</div><span class="mc-tag">Entrée</span></div></div>
-      <div class="mc"><div class="mc-img"><img src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20400%20260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22400%22%20height%3D%22260%22%20fill%3D%22%230A0A04%22%2F%3E%3Crect%20x%3D%22140%22%20y%3D%2260%22%20width%3D%226%22%20height%3D%22160%22%20rx%3D%223%22%20fill%3D%22%236B4A20%22%20transform%3D%22rotate%28-5%20143%20140%29%22%2F%3E%3Crect%20x%3D%22254%22%20y%3D%2255%22%20width%3D%226%22%20height%3D%22160%22%20rx%3D%223%22%20fill%3D%22%236B4A20%22%20transform%3D%22rotate%285%20257%20135%29%22%2F%3E%3Crect%20x%3D%2290%22%20y%3D%2290%22%20width%3D%2248%22%20height%3D%2238%22%20rx%3D%2210%22%20fill%3D%22%238B4513%22%20transform%3D%22rotate%28-5%20114%20109%29%22%2F%3E%3Crect%20x%3D%2293%22%20y%3D%2293%22%20width%3D%2242%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22%23C8953A%22%20transform%3D%22rotate%28-5%20114%20109%29%22%2F%3E%3Crect%20x%3D%22148%22%20y%3D%2282%22%20width%3D%2252%22%20height%3D%2240%22%20rx%3D%2210%22%20fill%3D%22%238B4513%22%20transform%3D%22rotate%28-5%20174%20102%29%22%2F%3E%3Crect%20x%3D%22151%22%20y%3D%2285%22%20width%3D%2246%22%20height%3D%2234%22%20rx%3D%228%22%20fill%3D%22%23C8953A%22%20transform%3D%22rotate%28-5%20174%20102%29%22%2F%3E%3Crect%20x%3D%22210%22%20y%3D%2288%22%20width%3D%2248%22%20height%3D%2238%22%20rx%3D%2210%22%20fill%3D%22%238B4513%22%20transform%3D%22rotate%285%20234%20107%29%22%2F%3E%3Crect%20x%3D%22213%22%20y%3D%2291%22%20width%3D%2242%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22%23C8953A%22%20transform%3D%22rotate%285%20234%20107%29%22%2F%3E%3Crect%20x%3D%22265%22%20y%3D%2280%22%20width%3D%2250%22%20height%3D%2242%22%20rx%3D%2210%22%20fill%3D%22%238B4513%22%20transform%3D%22rotate%285%20290%20101%29%22%2F%3E%3Crect%20x%3D%22268%22%20y%3D%2283%22%20width%3D%2244%22%20height%3D%2236%22%20rx%3D%228%22%20fill%3D%22%23C8953A%22%20transform%3D%22rotate%285%20290%20101%29%22%2F%3E%3Ccircle%20cx%3D%22155%22%20cy%3D%22170%22%20r%3D%2210%22%20fill%3D%22%233A6A10%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22175%22%20r%3D%228%22%20fill%3D%22%233A6A10%22%2F%3E%3Ccircle%20cx%3D%22235%22%20cy%3D%22168%22%20r%3D%229%22%20fill%3D%22%233A6A10%22%2F%3E%3Ctext%20x%3D%22200%22%20y%3D%22228%22%20text-anchor%3D%22middle%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2222%22%20font-style%3D%22italic%22%20fill%3D%22%23E8B560%22%20opacity%3D%22.9%22%3EBrochette%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Brochette" style="width:100%;height:100%;object-fit:cover;display:block"></div><div class="mc-body"><h3>Brochette</h3><p>Two grilled skewers of chicken, shrimp, or a combo — served with fresh onions and mustard sauce.</p><div class="mc-price">$26.50</div><span class="mc-tag">From the Grill</span></div></div>
-      <div class="mc"><div class="mc-img"><img src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20400%20260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22400%22%20height%3D%22260%22%20fill%3D%22%230A1A10%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22168%22%20rx%3D%22148%22%20ry%3D%2255%22%20fill%3D%22%230A1A08%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22158%22%20rx%3D%22132%22%20ry%3D%2248%22%20fill%3D%22%231A2A10%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22150%22%20rx%3D%22116%22%20ry%3D%2242%22%20fill%3D%22%231A4A20%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22143%22%20rx%3D%22100%22%20ry%3D%2236%22%20fill%3D%22%232A6A30%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22137%22%20rx%3D%2282%22%20ry%3D%2228%22%20fill%3D%22%233A8A40%22%20opacity%3D%22.8%22%2F%3E%3Cpath%20d%3D%22M118%20137%20q20-6%2040%202%20q20%206%2040-2%20q20-6%2040%202%20q16-4%2030%202%22%20stroke%3D%22%235AAA50%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20opacity%3D%22.6%22%2F%3E%3Cellipse%20cx%3D%22165%22%20cy%3D%22122%22%20rx%3D%2218%22%20ry%3D%2210%22%20fill%3D%22%231A6A20%22%20transform%3D%22rotate%28-20%20165%20122%29%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22115%22%20rx%3D%2220%22%20ry%3D%2211%22%20fill%3D%22%231A6A20%22%20transform%3D%22rotate%2810%20200%20115%29%22%2F%3E%3Cellipse%20cx%3D%22238%22%20cy%3D%22122%22%20rx%3D%2218%22%20ry%3D%2210%22%20fill%3D%22%231A6A20%22%20transform%3D%22rotate%28-10%20238%20122%29%22%2F%3E%3Ccircle%20cx%3D%22158%22%20cy%3D%22130%22%20r%3D%227%22%20fill%3D%22%23C8953A%22%20opacity%3D%22.8%22%2F%3E%3Ccircle%20cx%3D%22200%22%20cy%3D%22124%22%20r%3D%228%22%20fill%3D%22%23C8953A%22%20opacity%3D%22.8%22%2F%3E%3Ccircle%20cx%3D%22243%22%20cy%3D%22130%22%20r%3D%227%22%20fill%3D%22%23C8953A%22%20opacity%3D%22.8%22%2F%3E%3Ctext%20x%3D%22200%22%20y%3D%22226%22%20text-anchor%3D%22middle%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2220%22%20font-style%3D%22italic%22%20fill%3D%22%23E8B560%22%20opacity%3D%22.9%22%3ESoupe%20Kania%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Kania" style="width:100%;height:100%;object-fit:cover;display:block"></div><div class="mc-body"><h3>Soupe Kania</h3><p>Okra stew in a flavorful, spiced seafood sauce — a beloved family favorite and a Teranga specialty.</p><div class="mc-price">$25.00</div><span class="mc-tag">Specialty</span></div></div>
-      <div class="mc"><div class="mc-img"><img src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20400%20260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22400%22%20height%3D%22260%22%20fill%3D%22%231A0810%22%2F%3E%3Crect%20x%3D%22155%22%20y%3D%2260%22%20width%3D%2290%22%20height%3D%22155%22%20rx%3D%2210%22%20fill%3D%22%232A0A18%22%20opacity%3D%22.9%22%2F%3E%3Crect%20x%3D%22158%22%20y%3D%2263%22%20width%3D%2284%22%20height%3D%22149%22%20rx%3D%228%22%20fill%3D%22%238B1A30%22%20opacity%3D%22.7%22%2F%3E%3Crect%20x%3D%22160%22%20y%3D%2265%22%20width%3D%2280%22%20height%3D%22145%22%20rx%3D%227%22%20fill%3D%22%23C82A4A%22%20opacity%3D%22.6%22%2F%3E%3Crect%20x%3D%22162%22%20y%3D%2267%22%20width%3D%2276%22%20height%3D%22141%22%20rx%3D%226%22%20fill%3D%22%23E83A5A%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20d%3D%22M160%2067%20q40-15%2080%200%22%20stroke%3D%22%23FF6A7A%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20opacity%3D%22.4%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%2278%22%20rx%3D%2238%22%20ry%3D%2212%22%20fill%3D%22%23FF8A9A%22%20opacity%3D%22.25%22%2F%3E%3Cpath%20d%3D%22M155%20120%20q45%208%2090%200%22%20stroke%3D%22%23FF6A7A%22%20stroke-width%3D%221.5%22%20fill%3D%22none%22%20opacity%3D%22.3%22%2F%3E%3Crect%20x%3D%22148%22%20y%3D%22210%22%20width%3D%22104%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%232A0A18%22%2F%3E%3Ccircle%20cx%3D%22140%22%20cy%3D%22130%22%20r%3D%2212%22%20fill%3D%22%23C82A4A%22%20opacity%3D%22.5%22%2F%3E%3Ccircle%20cx%3D%22260%22%20cy%3D%22110%22%20r%3D%2210%22%20fill%3D%22%23C82A4A%22%20opacity%3D%22.4%22%2F%3E%3Cpath%20d%3D%22M120%2080%20q10-20%2020-5%20q8-18%2015-3%22%20stroke%3D%22%23C82A4A%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20d%3D%22M265%2075%20q8-18%2016-3%20q7-16%2013-2%22%20stroke%3D%22%23C82A4A%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20opacity%3D%22.5%22%2F%3E%3Ctext%20x%3D%22200%22%20y%3D%22245%22%20text-anchor%3D%22middle%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2222%22%20font-style%3D%22italic%22%20fill%3D%22%23E8B560%22%20opacity%3D%22.9%22%3EBissap%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Bissap" style="width:100%;height:100%;object-fit:cover;display:block"></div><div class="mc-body"><h3>Bissap</h3><p>Refreshing hibiscus juice made in-house daily — traditional, floral, and rich in antioxidants. A taste of home.</p><div class="mc-price">Ask Your Server</div><span class="mc-tag">House Made</span></div></div>
-    </div>
-    <div class="menu-cta reveal">
-      <a href="https://www.toasttab.com/local/order/teranga-african-restaurant" target="_blank" class="btn-g">Full Menu &amp; Order Online</a>
-    </div>
-  </div>
-</section>
-
-<section class="gal-sec" id="gallery">
-  <div class="gal-hdr reveal reveal-fade"><div class="sl reveal-line">A Taste of Teranga</div><h2 class="sh reveal-clip">Welcome to <em>Our Kitchen</em></h2></div>
-  <div class="gal-grid stagger">
-    <div class="gi"><img src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20400%20260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22400%22%20height%3D%22260%22%20fill%3D%22%231A1208%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22155%22%20rx%3D%22150%22%20ry%3D%2265%22%20fill%3D%22%232E1A08%22%20opacity%3D%22.8%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22148%22%20rx%3D%22135%22%20ry%3D%2258%22%20fill%3D%22%233A2010%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22145%22%20rx%3D%22120%22%20ry%3D%2252%22%20fill%3D%22%23C8953A%22%20opacity%3D%22.3%22%2F%3E%3Cpath%20d%3D%22M90%20140%20q30-20%2060-5%20q30%2012%2060-8%20q30-18%2060%205%20q20%2010%2040%200%22%20stroke%3D%22%23E8B560%22%20stroke-width%3D%223%22%20fill%3D%22none%22%20opacity%3D%22.7%22%2F%3E%3Cpath%20d%3D%22M95%20155%20q30-15%2055%200%20q30%2012%2060-5%20q30-15%2055%205%20q25%208%2040-2%22%20stroke%3D%22%23C8953A%22%20stroke-width%3D%222.5%22%20fill%3D%22none%22%20opacity%3D%22.8%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22130%22%20rx%3D%2260%22%20ry%3D%2228%22%20fill%3D%22%238B5A10%22%20opacity%3D%22.6%22%2F%3E%3Ccircle%20cx%3D%22180%22%20cy%3D%22122%22%20r%3D%2218%22%20fill%3D%22%23C8953A%22%20opacity%3D%22.8%22%2F%3E%3Ccircle%20cx%3D%22220%22%20cy%3D%22118%22%20r%3D%2222%22%20fill%3D%22%238B4513%22%20opacity%3D%22.9%22%2F%3E%3Ccircle%20cx%3D%22200%22%20cy%3D%22125%22%20r%3D%2220%22%20fill%3D%22%23C8953A%22%2F%3E%3Ccircle%20cx%3D%22200%22%20cy%3D%22125%22%20r%3D%2212%22%20fill%3D%22%23E8B560%22%20opacity%3D%22.8%22%2F%3E%3Ctext%20x%3D%22200%22%20y%3D%22222%22%20text-anchor%3D%22middle%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2222%22%20font-style%3D%22italic%22%20fill%3D%22%23E8B560%22%20opacity%3D%22.9%22%3EYassa%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Yassa" style="width:100%;height:100%;object-fit:cover;display:block"><div class="gov"><span class="gcap">Yassa</span></div></div>
-    <div class="gi"><img src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20400%20260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22400%22%20height%3D%22260%22%20fill%3D%22%230F0A04%22%2F%3E%3Crect%20x%3D%2280%22%20y%3D%22175%22%20width%3D%22240%22%20height%3D%2212%22%20rx%3D%223%22%20fill%3D%22%231A0A04%22%2F%3E%3Crect%20x%3D%22120%22%20y%3D%22168%22%20width%3D%228%22%20height%3D%2240%22%20rx%3D%222%22%20fill%3D%22%234A3020%22%2F%3E%3Crect%20x%3D%22200%22%20y%3D%22163%22%20width%3D%228%22%20height%3D%2240%22%20rx%3D%222%22%20fill%3D%22%234A3020%22%2F%3E%3Crect%20x%3D%22280%22%20y%3D%22170%22%20width%3D%228%22%20height%3D%2240%22%20rx%3D%222%22%20fill%3D%22%234A3020%22%2F%3E%3Crect%20x%3D%2260%22%20y%3D%22130%22%20width%3D%22280%22%20height%3D%2210%22%20rx%3D%223%22%20fill%3D%22%232E1A08%22%2F%3E%3Crect%20x%3D%2285%22%20y%3D%2295%22%20width%3D%2255%22%20height%3D%2248%22%20rx%3D%228%22%20fill%3D%22%238B4513%22%2F%3E%3Crect%20x%3D%2288%22%20y%3D%2298%22%20width%3D%2249%22%20height%3D%2242%22%20rx%3D%226%22%20fill%3D%22%23C8953A%22%2F%3E%3Crect%20x%3D%22165%22%20y%3D%2290%22%20width%3D%2265%22%20height%3D%2252%22%20rx%3D%228%22%20fill%3D%22%238B4513%22%2F%3E%3Crect%20x%3D%22168%22%20y%3D%2293%22%20width%3D%2259%22%20height%3D%2246%22%20rx%3D%226%22%20fill%3D%22%23C8953A%22%2F%3E%3Crect%20x%3D%22248%22%20y%3D%2297%22%20width%3D%2255%22%20height%3D%2246%22%20rx%3D%228%22%20fill%3D%22%238B4513%22%2F%3E%3Crect%20x%3D%22251%22%20y%3D%22100%22%20width%3D%2249%22%20height%3D%2240%22%20rx%3D%226%22%20fill%3D%22%23C8953A%22%2F%3E%3Cpath%20d%3D%22M85%2085%20q5-15%2010-5%20q5-15%2010-5%20q5-15%208-5%22%20stroke%3D%22%23E8B560%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20d%3D%22M170%2080%20q5-15%2010-5%20q5-15%2010-5%20q5-15%208-5%22%20stroke%3D%22%23E8B560%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20opacity%3D%22.5%22%2F%3E%3Ctext%20x%3D%22200%22%20y%3D%22226%22%20text-anchor%3D%22middle%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2222%22%20font-style%3D%22italic%22%20fill%3D%22%23E8B560%22%20opacity%3D%22.9%22%3EDibi%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Dibi" style="width:100%;height:100%;object-fit:cover;display:block"><div class="gov"><span class="gcap">Dibi Grill</span></div></div>
-    <div class="gi"><img src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20400%20260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22400%22%20height%3D%22260%22%20fill%3D%22%232E1A0E%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22160%22%20rx%3D%22160%22%20ry%3D%2250%22%20fill%3D%22%238B4513%22%20opacity%3D%22.4%22%2F%3E%3Cellipse%20cx%3D%22130%22%20cy%3D%22140%22%20rx%3D%2265%22%20ry%3D%2242%22%20fill%3D%22%23C8953A%22%20transform%3D%22rotate%28-15%20130%20140%29%22%2F%3E%3Cellipse%20cx%3D%22130%22%20cy%3D%22140%22%20rx%3D%2255%22%20ry%3D%2235%22%20fill%3D%22%23E8B560%22%20transform%3D%22rotate%28-15%20130%20140%29%22%2F%3E%3Cellipse%20cx%3D%22270%22%20cy%3D%22145%22%20rx%3D%2265%22%20ry%3D%2242%22%20fill%3D%22%23C8953A%22%20transform%3D%22rotate%2810%20270%20145%29%22%2F%3E%3Cellipse%20cx%3D%22270%22%20cy%3D%22145%22%20rx%3D%2255%22%20ry%3D%2235%22%20fill%3D%22%23E8B560%22%20transform%3D%22rotate%2810%20270%20145%29%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22120%22%20rx%3D%2270%22%20ry%3D%2245%22%20fill%3D%22%23C8953A%22%20transform%3D%22rotate%28-5%20200%20120%29%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22120%22%20rx%3D%2260%22%20ry%3D%2238%22%20fill%3D%22%23E8B560%22%20transform%3D%22rotate%28-5%20200%20120%29%22%2F%3E%3Cpath%20d%3D%22M150%20118%20q50-8%20100%204%22%20stroke%3D%22%238B4513%22%20stroke-width%3D%222%22%20fill%3D%22none%22%2F%3E%3Ccircle%20cx%3D%22185%22%20cy%3D%22112%22%20r%3D%224%22%20fill%3D%22%238B4513%22%2F%3E%3Ccircle%20cx%3D%22210%22%20cy%3D%22110%22%20r%3D%223%22%20fill%3D%22%238B4513%22%2F%3E%3Ccircle%20cx%3D%22230%22%20cy%3D%22114%22%20r%3D%224%22%20fill%3D%22%238B4513%22%2F%3E%3Ctext%20x%3D%22200%22%20y%3D%22220%22%20text-anchor%3D%22middle%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2222%22%20font-style%3D%22italic%22%20fill%3D%22%23E8B560%22%20opacity%3D%22.9%22%3EFataya%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Fataya" style="width:100%;height:100%;object-fit:cover;display:block"><div class="gov"><span class="gcap">Fataya</span></div></div>
-    <div class="gi"><img src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20400%20260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22400%22%20height%3D%22260%22%20fill%3D%22%231A0E04%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22165%22%20rx%3D%22145%22%20ry%3D%2255%22%20fill%3D%22%232E1A08%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22155%22%20rx%3D%22130%22%20ry%3D%2250%22%20fill%3D%22%233A1A08%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22148%22%20rx%3D%22115%22%20ry%3D%2244%22%20fill%3D%22%238B4513%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22143%22%20rx%3D%22100%22%20ry%3D%2238%22%20fill%3D%22%23C8953A%22%2F%3E%3Cpath%20d%3D%22M100%20143%20q25-8%2050%203%20q25%208%2050-3%20q25-8%2050%203%22%20stroke%3D%22%23E8B560%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20opacity%3D%22.6%22%2F%3E%3Ccircle%20cx%3D%22165%22%20cy%3D%22128%22%20r%3D%2216%22%20fill%3D%22%238B1A0A%22%2F%3E%3Ccircle%20cx%3D%22200%22%20cy%3D%22120%22%20r%3D%2218%22%20fill%3D%22%236B3010%22%2F%3E%3Ccircle%20cx%3D%22235%22%20cy%3D%22128%22%20r%3D%2215%22%20fill%3D%22%238B1A0A%22%2F%3E%3Ccircle%20cx%3D%22180%22%20cy%3D%22138%22%20r%3D%2212%22%20fill%3D%22%233A1A04%22%2F%3E%3Ccircle%20cx%3D%22220%22%20cy%3D%22135%22%20r%3D%2213%22%20fill%3D%22%233A1A04%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%22105%22%20rx%3D%2240%22%20ry%3D%228%22%20fill%3D%22%23E8B560%22%20opacity%3D%22.4%22%2F%3E%3Ctext%20x%3D%22200%22%20y%3D%22225%22%20text-anchor%3D%22middle%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2222%22%20font-style%3D%22italic%22%20fill%3D%22%23E8B560%22%20opacity%3D%22.9%22%3EMaf%C3%A9%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Mafe" style="width:100%;height:100%;object-fit:cover;display:block"><div class="gov"><span class="gcap">Mafé</span></div></div>
-    <div class="gi"><img src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20400%20260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22400%22%20height%3D%22260%22%20fill%3D%22%231A0810%22%2F%3E%3Crect%20x%3D%22155%22%20y%3D%2260%22%20width%3D%2290%22%20height%3D%22155%22%20rx%3D%2210%22%20fill%3D%22%232A0A18%22%20opacity%3D%22.9%22%2F%3E%3Crect%20x%3D%22158%22%20y%3D%2263%22%20width%3D%2284%22%20height%3D%22149%22%20rx%3D%228%22%20fill%3D%22%238B1A30%22%20opacity%3D%22.7%22%2F%3E%3Crect%20x%3D%22160%22%20y%3D%2265%22%20width%3D%2280%22%20height%3D%22145%22%20rx%3D%227%22%20fill%3D%22%23C82A4A%22%20opacity%3D%22.6%22%2F%3E%3Crect%20x%3D%22162%22%20y%3D%2267%22%20width%3D%2276%22%20height%3D%22141%22%20rx%3D%226%22%20fill%3D%22%23E83A5A%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20d%3D%22M160%2067%20q40-15%2080%200%22%20stroke%3D%22%23FF6A7A%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20opacity%3D%22.4%22%2F%3E%3Cellipse%20cx%3D%22200%22%20cy%3D%2278%22%20rx%3D%2238%22%20ry%3D%2212%22%20fill%3D%22%23FF8A9A%22%20opacity%3D%22.25%22%2F%3E%3Cpath%20d%3D%22M155%20120%20q45%208%2090%200%22%20stroke%3D%22%23FF6A7A%22%20stroke-width%3D%221.5%22%20fill%3D%22none%22%20opacity%3D%22.3%22%2F%3E%3Crect%20x%3D%22148%22%20y%3D%22210%22%20width%3D%22104%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%232A0A18%22%2F%3E%3Ccircle%20cx%3D%22140%22%20cy%3D%22130%22%20r%3D%2212%22%20fill%3D%22%23C82A4A%22%20opacity%3D%22.5%22%2F%3E%3Ccircle%20cx%3D%22260%22%20cy%3D%22110%22%20r%3D%2210%22%20fill%3D%22%23C82A4A%22%20opacity%3D%22.4%22%2F%3E%3Cpath%20d%3D%22M120%2080%20q10-20%2020-5%20q8-18%2015-3%22%20stroke%3D%22%23C82A4A%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20d%3D%22M265%2075%20q8-18%2016-3%20q7-16%2013-2%22%20stroke%3D%22%23C82A4A%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20opacity%3D%22.5%22%2F%3E%3Ctext%20x%3D%22200%22%20y%3D%22245%22%20text-anchor%3D%22middle%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2222%22%20font-style%3D%22italic%22%20fill%3D%22%23E8B560%22%20opacity%3D%22.9%22%3EBissap%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Bissap" style="width:100%;height:100%;object-fit:cover;display:block"><div class="gov"><span class="gcap">Bissap Juice</span></div></div>
-    <div class="gi"><img src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20400%20260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22400%22%20height%3D%22260%22%20fill%3D%22%231A3020%22%2F%3E%3Crect%20x%3D%2260%22%20y%3D%22160%22%20width%3D%22280%22%20height%3D%228%22%20rx%3D%224%22%20fill%3D%22%230A1A10%22%20opacity%3D%22.6%22%2F%3E%3Ccircle%20cx%3D%22120%22%20cy%3D%22148%22%20r%3D%2238%22%20fill%3D%22%238B6010%22%2F%3E%3Ccircle%20cx%3D%22120%22%20cy%3D%22148%22%20r%3D%2230%22%20fill%3D%22%23C8953A%22%2F%3E%3Ccircle%20cx%3D%22120%22%20cy%3D%22148%22%20r%3D%2222%22%20fill%3D%22%23E8B560%22%2F%3E%3Ccircle%20cx%3D%22200%22%20cy%3D%22143%22%20r%3D%2242%22%20fill%3D%22%238B6010%22%2F%3E%3Ccircle%20cx%3D%22200%22%20cy%3D%22143%22%20r%3D%2234%22%20fill%3D%22%23C8953A%22%2F%3E%3Ccircle%20cx%3D%22200%22%20cy%3D%22143%22%20r%3D%2226%22%20fill%3D%22%23E8B560%22%2F%3E%3Ccircle%20cx%3D%22280%22%20cy%3D%22150%22%20r%3D%2236%22%20fill%3D%22%238B6010%22%2F%3E%3Ccircle%20cx%3D%22280%22%20cy%3D%22150%22%20r%3D%2228%22%20fill%3D%22%23C8953A%22%2F%3E%3Ccircle%20cx%3D%22280%22%20cy%3D%22150%22%20r%3D%2220%22%20fill%3D%22%23E8B560%22%2F%3E%3Ccircle%20cx%3D%22160%22%20cy%3D%22120%22%20r%3D%2230%22%20fill%3D%22%238B6010%22%2F%3E%3Ccircle%20cx%3D%22160%22%20cy%3D%22120%22%20r%3D%2222%22%20fill%3D%22%23C8953A%22%2F%3E%3Ccircle%20cx%3D%22160%22%20cy%3D%22120%22%20r%3D%2216%22%20fill%3D%22%23E8B560%22%2F%3E%3Ccircle%20cx%3D%22240%22%20cy%3D%22118%22%20r%3D%2228%22%20fill%3D%22%238B6010%22%2F%3E%3Ccircle%20cx%3D%22240%22%20cy%3D%22118%22%20r%3D%2220%22%20fill%3D%22%23C8953A%22%2F%3E%3Ccircle%20cx%3D%22240%22%20cy%3D%22118%22%20r%3D%2214%22%20fill%3D%22%23E8B560%22%2F%3E%3Ctext%20x%3D%22200%22%20y%3D%22220%22%20text-anchor%3D%22middle%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2222%22%20font-style%3D%22italic%22%20fill%3D%22%23E8B560%22%20opacity%3D%22.9%22%3EAccara%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Accara" style="width:100%;height:100%;object-fit:cover;display:block"><div class="gov"><span class="gcap">Accara Fritters</span></div></div>
-  </div>
-</section>
-
-<section class="rev-sec">
-  <div class="rev-hdr reveal reveal-fade"><div class="sl reveal-line">Customer Feedback</div><h2 class="sh reveal-clip">Loved by <em>Our Community</em></h2></div>
-  <div class="rev-grid stagger">
-    <div class="rc"><div class="rc-stars">★★★★★</div><p class="rc-txt">"Teranga is a hit with my friends who come for a one-of-a-kind dining experience. The food is fresh, flavorful, and beautifully authentic — every bite brings me back to home."</p><div class="rc-auth">— Khadija</div></div>
-    <div class="rc"><div class="rc-stars">★★★★★</div><p class="rc-txt">"I can always find something delicious at Teranga. My family especially loves Soupe Kania. The owner is so warm and welcoming — a true gem in Chicago."</p><div class="rc-auth">— Absa B.</div></div>
-    <div class="rc"><div class="rc-stars">★★★★★</div><p class="rc-txt">"I love Teranga. The service is friendly and excellent every time. If you're looking for a restaurant that will blow away your guests, this is the place to go."</p><div class="rc-auth">— Kirsten B.</div></div>
-  </div>
-</section>
-
-<div class="info" id="contact">
-  <div class="info-in stagger">
-    <div class="ic"><h3>Hours</h3><div class="id"></div><p>Mon – Thu: 11:00 AM – 10:00 PM<br/>Fri – Sat: 11:00 AM – 11:00 PM<br/>Sun: 11:00 AM – 10:00 PM<br/><br/>Dine-In · Takeout · Delivery</p></div>
-    <div class="ic"><h3>Location</h3><div class="id"></div><p>1131 W. Bryn Mawr Street<br/>Chicago, IL 60660<br/><br/><a href="tel:7737540534">(773) 754-0534</a><br/><br/>Across from Bryn Mawr Red Line stop</p></div>
-    <div class="ic"><h3>Order &amp; Reserve</h3><div class="id"></div><p style="margin-bottom:20px">Order online or call us to book your table. Catering inquiries always welcome!</p><a href="https://www.toasttab.com/local/order/teranga-african-restaurant" target="_blank" class="btn-g pulse" style="font-size:.75rem;padding:12px 28px">Order Online</a></div>
-  </div>
-</div>
-
-<footer>
-  <div class="ft">
-    <div class="fb">
-      <span class="fs">Teranga</span>
-      <p>Authentic Senegalese cuisine in Chicago's Edgewater neighborhood. Every meal is a celebration of culture, community, and the art of teranga — the spirit of hospitality.</p>
-      <div class="fsoc"><a href="#">f</a><a href="#">ig</a><a href="#">g</a></div>
-    </div>
-    <div class="fc"><h4>Navigate</h4><ul><li><a href="#menu">Menu</a></li><li><a href="#svc">Services</a></li><li><a href="#about">About Us</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#contact">Reservations</a></li><li><a href="#contact">Catering</a></li></ul></div>
-    <div class="fc"><h4>Contact</h4><ul><li><a href="tel:7737540534">(773) 754-0534</a></li><li><a href="#">1131 W. Bryn Mawr Street</a></li><li><a href="#">Chicago, IL 60660</a></li><li><a href="#">Get Directions</a></li><li><a href="https://www.toasttab.com/local/order/teranga-african-restaurant" target="_blank">Order Online</a></li></ul></div>
-  </div>
-  <div class="fb2">
-    <span>© 2025 Teranga African Restaurant · Chicago, IL · All rights reserved</span>
-    <div><a href="#">Privacy Policy</a><span style="margin:0 10px;opacity:.3">|</span><a href="#">Terms of Service</a></div>
-  </div>
-</footer>
+<footer><p>© 2025 Elevation Studio. All rights reserved.</p></footer>
 
 <script>
-  // ── NAV SCROLL ──
-  window.addEventListener('scroll',()=>{
-    document.getElementById('nav').classList.toggle('scrolled',scrollY>50);
-    // Scroll progress bar
-    const prog=document.getElementById('scrollProg');
-    const total=document.documentElement.scrollHeight-innerHeight;
-    prog.style.width=(scrollY/total*100)+'%';
-  });
-
-  // ── SLIDESHOW ──
-  let cur=0;const slides=document.querySelectorAll('.slide'),dots=document.querySelectorAll('.dot');
-  function gotoSlide(n){slides[cur].classList.remove('active');dots[cur].classList.remove('active');cur=(n+slides.length)%slides.length;slides[cur].classList.add('active');dots[cur].classList.add('active');}
-  function nextSlide(){gotoSlide(cur+1);}function prevSlide(){gotoSlide(cur-1);}
-  setInterval(nextSlide,5500);
-
-  // ── SCROLL ANIMATIONS ──
-  // Handle all reveal types + stagger
-  const revealObs = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        e.target.classList.add('visible');
-        revealObs.unobserve(e.target);
-      }
-    });
-  },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
-
-  // Stagger observer — triggers the parent so children animate in sequence
-  const staggerObs = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        e.target.classList.add('visible');
-        staggerObs.unobserve(e.target);
-      }
-    });
-  },{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
-
-  document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale,.reveal-fade,.reveal-bounce,.strip-in').forEach(el=>{
-    // Skip children of stagger (they animate via CSS delay)
-    if(!el.closest('.stagger')) revealObs.observe(el);
-  });
-  document.querySelectorAll('.stagger').forEach(el=>staggerObs.observe(el));
-  // Also observe the about visual independently
-  document.querySelectorAll('.a-vis').forEach(el=>staggerObs.observe(el));
-  // Reveal-line and reveal-clip inside reveal parents
-  document.querySelectorAll('.reveal-line,.reveal-clip').forEach(el=>{
-    // These animate via CSS when parent gets .visible, but if standalone observe them
-    if(!el.closest('.reveal')&&!el.closest('.reveal-fade')) revealObs.observe(el);
-  });
-
-  // ── PARALLAX on hero glow ──
-  window.addEventListener('scroll',()=>{
-    const y=scrollY;
-    const glow=document.querySelector('.h-glow');
-    if(glow) glow.style.transform=`translateY(${y*0.15}px)`;
-    const hContent=document.querySelector('.h-content');
-    if(hContent && y<window.innerHeight) hContent.style.transform=`translateY(${y*0.2}px)`;
-  },{passive:true});
-
-  // ── COUNTER ANIMATION for stat numbers ──
-  function animateCounter(el, target, suffix, duration=1600){
-    let start=0; const step=target/60;
-    const isDecimal=target%1!==0;
-    const timer=setInterval(()=>{
-      start+=step;
-      if(start>=target){start=target;clearInterval(timer);}
-      el.textContent=(isDecimal?start.toFixed(1):Math.floor(start))+suffix;
-    },duration/60);
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.btn-submit');
+    btn.textContent = '✓ Request sent! We\'ll be in touch soon.';
+    btn.style.background = 'linear-gradient(135deg, #00c48c, #007a5c)';
+    btn.disabled = true;
   }
-
-  const statObs=new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        statObs.unobserve(e.target);
-        // No numeric counters in current stats (they use text), skip
-      }
-    });
-  },{threshold:0.5});
-
-  // ── SMOOTH HOVER TILT on review cards ──
-  document.querySelectorAll('.rc').forEach(card=>{
-    card.addEventListener('mousemove',e=>{
-      const r=card.getBoundingClientRect();
-      const x=(e.clientX-r.left)/r.width-.5;
-      const y=(e.clientY-r.top)/r.height-.5;
-      card.style.transform=`translateY(-6px) rotateX(${-y*6}deg) rotateY(${x*6}deg)`;
-    });
-    card.addEventListener('mouseleave',()=>{
-      card.style.transform='';
-    });
-  });
-
-  // ── MAGNETIC effect on CTA buttons ──
-  document.querySelectorAll('.btn-g,.btn-o,.popup-btn').forEach(btn=>{
-    btn.addEventListener('mousemove',e=>{
-      const r=btn.getBoundingClientRect();
-      const x=(e.clientX-r.left-r.width/2)*0.25;
-      const y=(e.clientY-r.top-r.height/2)*0.25;
-      btn.style.transform=`translate(${x}px,${y}px)`;
-    });
-    btn.addEventListener('mouseleave',()=>{
-      btn.style.transform='';
-    });
-  });
-
-  // ── RIPPLE effect on buttons ──
-  document.querySelectorAll('.btn-g,.btn-o,.btn-w,.popup-btn').forEach(btn=>{
-    btn.style.position='relative';btn.style.overflow='hidden';
-    btn.addEventListener('click',function(e){
-      const r=this.getBoundingClientRect();
-      const rip=document.createElement('span');
-      rip.style.cssText=`position:absolute;border-radius:50%;background:rgba(255,255,255,.3);width:10px;height:10px;left:${e.clientX-r.left-5}px;top:${e.clientY-r.top-5}px;transform:scale(0);animation:ripple .6s ease-out;pointer-events:none`;
-      this.appendChild(rip);
-      setTimeout(()=>rip.remove(),700);
-    });
-  });
-
-  // ── GOLD LINE reveal inside reveal parents ──
-  // When a .reveal-line's ancestor becomes visible, add visible to it too
-  const lineObs=new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        e.target.querySelectorAll('.reveal-line').forEach(el=>setTimeout(()=>el.classList.add('visible'),200));
-        e.target.querySelectorAll('.reveal-clip').forEach(el=>setTimeout(()=>el.classList.add('visible'),350));
-        lineObs.unobserve(e.target);
-      }
-    });
-  },{threshold:0.15});
-  document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-fade').forEach(el=>{
-    if(el.querySelector('.reveal-line,.reveal-clip')) lineObs.observe(el);
-  });
-
-  // ── STRIP ENTRANCE ──
-  document.querySelectorAll('.res-strip,.cat-strip,.info').forEach(el=>{
-    el.classList.add('strip-in');
-    revealObs.observe(el);
-  });
 </script>
-<style>
-@keyframes ripple{to{transform:scale(30);opacity:0}}
-</style>
 </body>
 </html>
